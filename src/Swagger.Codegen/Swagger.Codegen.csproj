@@ -47,6 +47,7 @@
     <Compile Include="..\..\etc\AssemblyInfo.Common.cs">
       <Link>Properties\AssemblyInfo.Common.cs</Link>
     </Compile>
+    <Compile Include="CodegenProcessors\CSharp\Templates\Output.Custom.cs" />
     <Compile Include="CodegenProcessors\CSharp\Templates\EndpointClientBaseCode.Custom.cs" />
     <Compile Include="CodegenProcessors\CSharp\Templates\EndpointClientBaseCode.cs">
       <AutoGen>True</AutoGen>
@@ -65,6 +66,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ModelCode.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CodegenProcessors\CSharp\Templates\Output.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Output.tt</DependentUpon>
     </Compile>
     <Compile Include="CodegenSettings.cs" />
     <Compile Include="Extensions.cs" />
@@ -115,6 +121,10 @@
     <None Include="CodegenProcessors\CSharp\Templates\ModelCode.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ModelCode.cs</LastGenOutput>
+    </None>
+    <None Include="CodegenProcessors\CSharp\Templates\Output.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>Output.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
     <None Include="CodegenProcessors\CSharp\Templates\ClientCode.tt">

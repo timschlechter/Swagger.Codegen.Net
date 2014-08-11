@@ -3,12 +3,10 @@
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
-public abstract class EndpointClientBase
+namespace <#= Settings.Namespace #>.Endpoints
 {
-    protected EndpointClientBase(string url)
-    {
-        Url = url;
-    }
+<# foreach (var snippet in Snippets) { #>
+<#= snippet #>
         
-    public string Url { get; private set; }   
+<# } #>
 }

@@ -4,25 +4,22 @@
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
 <#@ import namespace="Swagger.Codegen" #>
-namespace <#= Settings.Namespace #>
+public class <#= Settings.ApiName #>Client
 {
-    public class <#= Settings.ApiName #>Client
+    public <#= Settings.ApiName #>Client(string url) 
     {
-        public <#= Settings.ApiName #>Client(string url) 
-        {
-            Url = url;
-            <# foreach (var resourceName in Settings.ApiDeclarations.Select(a => a.GetResourceName())) 
-            { #><#= resourceName #> = new <#= resourceName #>Client(url);
-            <# } #>
+        Url = url;
+        <# foreach (var resourceName in Settings.ApiDeclarations.Select(a => a.GetResourceName())) 
+        { #><#= resourceName #> = new <#= resourceName #>Client(url);
+        <# } #>
         
-        }
+    }
 
-        public string Url { get; private set; }
+    public string Url { get; private set; }
 
-        <# foreach (var resourceName in Settings.ApiDeclarations.Select(a => a.GetResourceName())) { #>
+    <# foreach (var resourceName in Settings.ApiDeclarations.Select(a => a.GetResourceName())) { #>
 public <#= resourceName #>Client <#= resourceName #> { get; private set; }
         
-        <# } #>
+    <# } #>
 
-    }
 }

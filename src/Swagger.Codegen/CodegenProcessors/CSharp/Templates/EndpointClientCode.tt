@@ -4,11 +4,8 @@
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
 <#@ import namespace="Swagger.Codegen" #>
-namespace <#= Settings.Namespace #>.Endpoints
+public class <#= ApiDeclaration.GetResourceName() #>Client : EndpointClientBase
 {
-    public class <#= ApiDeclaration.GetResourceName() #>Client : EndpointClientBase
-    {
-        public <#= ApiDeclaration.GetResourceName() #>Client(string url) 
-            : base(url) { }
-    }
+    public <#= ApiDeclaration.GetResourceName() #>Client(string url) 
+        : base(url) { }
 }

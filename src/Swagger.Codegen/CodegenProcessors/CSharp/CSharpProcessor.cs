@@ -1,6 +1,9 @@
-﻿using Swagger.Codegen.CodegenProcessors.CSharp.Templates;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
+using Swagger.Codegen.CodegenProcessors.CSharp.Templates;
 
 namespace Swagger.Codegen.CodegenProcessors.CSharp
 {
@@ -8,51 +11,33 @@ namespace Swagger.Codegen.CodegenProcessors.CSharp
     {
         public void Process(CodegenSettings settings)
         {
-            var endpointsPath = Path.Combine(settings.OutputPath, "Endpoints");
-            var modelsPath = Path.Combine(settings.OutputPath, "Models");
+            var snippets = new List<string>();
 
-            CreateIfNotExists(settings.OutputPath);
-            CreateIfNotExists(endpointsPath);
-            CreateIfNotExists(modelsPath);
+            // {ApiName}Client
+            snippets.Add(new ClientCode { Settings = settings }.TransformText());
 
-            // {ApiName}Client.cs
-            File.WriteAllText(
-                path: Path.Combine(settings.OutputPath, settings.ApiName + "Client.cs"),
-                contents: new ClientCode
-                {
-                    Settings = settings
-                }.TransformText()
-            );
+            // EndpointClientBase
+            snippets.Add(new EndpointClientBaseCode { Settings = settings }.TransformText());
 
-            // Endpoints/EndClientBase.cs
-            File.WriteAllText(
-                path: Path.Combine(endpointsPath, "EndpointClientBase.cs"),
-                contents: new EndpointClientBaseCode
-                {
-                    Settings = settings
-                }.TransformText()
-            );
-
-            // Endpoints/{ResourceName}Client.cs
+            // {ResourceName}Client
             Parallel.ForEach(settings.ApiDeclarations, apiDeclaration =>
             {
-                File.WriteAllText(
-                    path: Path.Combine(endpointsPath, apiDeclaration.GetResourceName() + "Client.cs"),
-                    contents: new EndpointClientCode
-                    {
-                        Settings = settings,
-                        ApiDeclaration = apiDeclaration
-                    }.TransformText()
-                );
+                snippets.Add(new EndpointClientCode { Settings = settings, ApiDeclaration = apiDeclaration }.TransformText());
             });
-        }
 
-        private static void CreateIfNotExists(string path)
-        {
-            if (!Directory.Exists(path))
+            if (!Directory.Exists(settings.OutputPath))
             {
-                Directory.CreateDirectory(path);
+                Directory.CreateDirectory(settings.OutputPath);
             }
+
+            File.WriteAllText(
+                path: Path.Combine(settings.OutputPath, settings.ApiName + "Client.cs"),
+                contents: new Output
+                {
+                    Settings = settings,
+                    Snippets = snippets.Select(s => "    " + s.Replace(Environment.NewLine, Environment.NewLine + "    ")).ToList()
+                }.TransformText()
+            );
         }
     }
 }
