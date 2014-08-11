@@ -2,9 +2,9 @@
 
 Commandline tool which generates client code for a [Swagger](https://helloreverb.com/developers/swagger) enabled API
 
-<code>
+```
 swagger.exe [options]
-</code>
+```
 
 ## Options
 
@@ -17,7 +17,7 @@ swagger.exe [options]
 
 ## Examples
 
-<code>
+```
 swagger.exe --url "http://petstore.swagger.wordnik.com/api/api-docs" --apiname PetStore --namespace MyApplication
-</code>
+```
 
