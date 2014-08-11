@@ -25,19 +25,34 @@ namespace Swagger.Codegen.CodegenProcessors.CSharp
                 snippets.Add(new EndpointClientCode { Settings = settings, ApiDeclaration = apiDeclaration }.TransformText());
             });
 
-            if (!Directory.Exists(settings.OutputPath))
+            // Indent snippets when a namespace is set
+            if (!String.IsNullOrEmpty(settings.Namespace))
             {
-                Directory.CreateDirectory(settings.OutputPath);
+                snippets = snippets.Select(s => "    " + s.Replace(Environment.NewLine, Environment.NewLine + "    ")).ToList();
             }
 
-            File.WriteAllText(
-                path: Path.Combine(settings.OutputPath, settings.ApiName + "Client.cs"),
-                contents: new Output
-                {
-                    Settings = settings,
-                    Snippets = snippets.Select(s => "    " + s.Replace(Environment.NewLine, Environment.NewLine + "    ")).ToList()
-                }.TransformText()
-            );
+			var contents = new Output
+			{
+				Settings = settings,
+				Snippets = snippets
+			}.TransformText();
+
+			WriteToFile(settings.OutputPath, contents);
         }
+
+		private static void WriteToFile(string path, string contents)
+		{
+
+			var outputFolder = Path.GetDirectoryName(path);
+			if (!Directory.Exists(outputFolder))
+			{
+				Directory.CreateDirectory(outputFolder);
+			}
+
+			File.WriteAllText(
+				path: path,
+				contents: contents
+			);
+		}
     }
 }

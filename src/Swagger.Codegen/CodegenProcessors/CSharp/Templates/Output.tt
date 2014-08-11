@@ -3,10 +3,14 @@
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
-namespace <#= Settings.Namespace #>.Endpoints
+<# if (Settings.Namespace != null) { #>
+namespace <#= Settings.Namespace #>
 {
+<# } #>
 <# foreach (var snippet in Snippets) { #>
 <#= snippet #>
         
 <# } #>
+<# if (Settings.Namespace != null) { #>
 }
+<# } #>

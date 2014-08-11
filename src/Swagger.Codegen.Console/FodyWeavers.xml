@@ -2,8 +2,8 @@
 <Weavers>
   <Costura>
     <IncludeAssemblies>
+      CommandLine
       Swagger.Codegen
     </IncludeAssemblies>
-  </Costura>
-  
+  </Costura>  
 </Weavers>

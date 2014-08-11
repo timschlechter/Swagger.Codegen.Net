@@ -6,17 +6,24 @@ namespace Swagger.Codegen.Console
     {
         private static void Main(string[] args)
         {
-            var codeGenerator = new Codegenerator();
-            codeGenerator.Process(
-                new CodegenSettings
-                {
-                    ApiName = "PetStore",
-                    Url = "http://petstore.swagger.wordnik.com/api/api-docs",
-                    Processor = new CSharpProcessor(),
-                    OutputPath = ".\\out",
-                    Namespace = "MyApplication"
-                }
-            );
+            var options = new CommandLineOptions();
+            
+            if (CommandLine.Parser.Default.ParseArgumentsStrict(args, options))
+            {
+                var codeGenerator = new Codegenerator();
+                codeGenerator.Process(
+                    new CodegenSettings
+                    {
+                        ApiName = options.ApiName,
+                        Url = options.Url,
+                        Processor = new CSharpProcessor(),
+                        OutputPath = options.OutputPath,
+                        Namespace = options.Namespace
+                    }
+                );
+            }
+
+           
         }
     }
 }

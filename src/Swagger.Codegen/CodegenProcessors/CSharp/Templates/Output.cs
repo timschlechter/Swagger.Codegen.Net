@@ -28,34 +28,58 @@ namespace Swagger.Codegen.CodegenProcessors.CSharp.Templates
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write("namespace ");
             
             #line 6 "C:\Users\schle00t\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\CodegenProcessors\CSharp\Templates\Output.tt"
+ if (Settings.Namespace != null) { 
+            
+            #line default
+            #line hidden
+            this.Write("namespace ");
+            
+            #line 7 "C:\Users\schle00t\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\CodegenProcessors\CSharp\Templates\Output.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Settings.Namespace));
             
             #line default
             #line hidden
-            this.Write(".Endpoints\r\n{\r\n");
+            this.Write("\r\n{\r\n");
             
-            #line 8 "C:\Users\schle00t\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\CodegenProcessors\CSharp\Templates\Output.tt"
+            #line 9 "C:\Users\schle00t\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\CodegenProcessors\CSharp\Templates\Output.tt"
+ } 
+            
+            #line default
+            #line hidden
+            
+            #line 10 "C:\Users\schle00t\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\CodegenProcessors\CSharp\Templates\Output.tt"
  foreach (var snippet in Snippets) { 
             
             #line default
             #line hidden
             
-            #line 9 "C:\Users\schle00t\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\CodegenProcessors\CSharp\Templates\Output.tt"
+            #line 11 "C:\Users\schle00t\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\CodegenProcessors\CSharp\Templates\Output.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(snippet));
             
             #line default
             #line hidden
             this.Write("\r\n        \r\n");
             
-            #line 11 "C:\Users\schle00t\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\CodegenProcessors\CSharp\Templates\Output.tt"
+            #line 13 "C:\Users\schle00t\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\CodegenProcessors\CSharp\Templates\Output.tt"
  } 
             
             #line default
             #line hidden
-            this.Write("}");
+            
+            #line 14 "C:\Users\schle00t\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\CodegenProcessors\CSharp\Templates\Output.tt"
+ if (Settings.Namespace != null) { 
+            
+            #line default
+            #line hidden
+            this.Write("}\r\n");
+            
+            #line 16 "C:\Users\schle00t\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\CodegenProcessors\CSharp\Templates\Output.tt"
+ } 
+            
+            #line default
+            #line hidden
             return this.GenerationEnvironment.ToString();
         }
     }
