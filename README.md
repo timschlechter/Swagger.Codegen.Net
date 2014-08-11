@@ -18,6 +18,6 @@ swagger.exe [options]
 ## Examples
 
 ```
-swagger.exe --url "http://petstore.swagger.wordnik.com/api/api-docs" --apiname PetStore --namespace MyApplication
+swagger.exe --url "http://petstore.swagger.wordnik.com/api/api-docs" --apiname PetStore
 ```
 
