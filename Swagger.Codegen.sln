@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swagger.Codegen", "src\Swagger.Codegen\Swagger.Codegen.csproj", "{C7172DD6-4CC6-4153-AAA6-3C9C3205956F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swagger.Codegen.Console", "src\Swagger.Codegen.Console\Swagger.Codegen.Console.csproj", "{D4753DAB-E8BF-4D98-BEB9-563E40DF6E94}"
@@ -9,7 +11,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{91699256-1B3
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "etc", "etc", "{BA93657A-ED60-4A52-9246-647F20BEDEA0}"
 	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
 		etc\AssemblyInfo.Common.cs = etc\AssemblyInfo.Common.cs
+		LICENSE = LICENSE
+		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{0BB1E67B-ED92-4417-B928-D25CBB9AF4B0}"
