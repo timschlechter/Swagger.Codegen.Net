@@ -1,4 +1,5 @@
 ﻿using Swagger.Codegen.CodegenProcessors.CSharp;
+using System.IO;
 
 namespace Swagger.Codegen.Console
 {
@@ -10,17 +11,26 @@ namespace Swagger.Codegen.Console
             
             if (CommandLine.Parser.Default.ParseArgumentsStrict(args, options))
             {
-                var codeGenerator = new Codegenerator();
-                codeGenerator.Process(
-                    new CodegenSettings
-                    {
-                        ApiName = options.ApiName,
-                        Url = options.Url,
-                        Processor = new CSharpProcessor(),
-                        OutputPath = options.OutputPath,
-                        Namespace = options.Namespace
-                    }
-                );
+                if (!options.OutputPath.EndsWith(".cs"))
+                {
+                    options.OutputPath = Path.Combine(options.OutputPath, options.ApiName + "Client.cs");
+                }
+
+                using (var fs = new FileStream(options.OutputPath, FileMode.OpenOrCreate))
+                {
+                    var codeGenerator = new Codegenerator();
+                    codeGenerator.Process(
+                        new CodegenSettings
+                        {
+                            ApiName = options.ApiName,
+                            ApiUrl = options.Url,
+                            Processor = new CSharpProcessor(),
+                            OutputPath = options.OutputPath,
+                            Namespace = options.Namespace
+                        },
+                        fs
+                    );
+                }
             }
 
            

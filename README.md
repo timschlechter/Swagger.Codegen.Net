@@ -6,6 +6,8 @@ Commandline tool which generates client code for a [Swagger](https://helloreverb
 swagger.exe [options]
 ```
 
+This repository tries to provide the same functionality offered by the awesome [swagger-codegen](https://github.com/wordnik/swagger-codegen) but without its [Prerequisites](https://github.com/wordnik/swagger-codegen#prerequisites) (which might be a bit inconvenient in a .Net environment ;-))
+
 ## Options
 
 | Option              | Description                                                                                                                                                                                            |

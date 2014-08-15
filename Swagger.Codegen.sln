@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
-MinimumVisualStudioVersion = 10.0.40219.1
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swagger.Codegen", "src\Swagger.Codegen\Swagger.Codegen.csproj", "{C7172DD6-4CC6-4153-AAA6-3C9C3205956F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swagger.Codegen.Console", "src\Swagger.Codegen.Console\Swagger.Codegen.Console.csproj", "{D4753DAB-E8BF-4D98-BEB9-563E40DF6E94}"
@@ -20,6 +18,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{0BB1E67B-ED92-4417-B928-D25CBB9AF4B0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swagger.Codegen.Tests", "test\Swagger.Codegen.Tests\Swagger.Codegen.Tests.csproj", "{D53BF26B-B04D-487D-B87B-8569400C1DA1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swagger.Codegen.Web", "src\Swagger.Codegen.Web\Swagger.Codegen.Web.csproj", "{887A8565-4A10-44C8-82EF-F2F2D1D2BFBF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,13 +39,18 @@ Global
 		{D53BF26B-B04D-487D-B87B-8569400C1DA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D53BF26B-B04D-487D-B87B-8569400C1DA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D53BF26B-B04D-487D-B87B-8569400C1DA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{887A8565-4A10-44C8-82EF-F2F2D1D2BFBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{887A8565-4A10-44C8-82EF-F2F2D1D2BFBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{887A8565-4A10-44C8-82EF-F2F2D1D2BFBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{887A8565-4A10-44C8-82EF-F2F2D1D2BFBF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{C7172DD6-4CC6-4153-AAA6-3C9C3205956F} = {91699256-1B33-43C6-9349-42BED8A229B6}
 		{D4753DAB-E8BF-4D98-BEB9-563E40DF6E94} = {91699256-1B33-43C6-9349-42BED8A229B6}
+		{C7172DD6-4CC6-4153-AAA6-3C9C3205956F} = {91699256-1B33-43C6-9349-42BED8A229B6}
+		{887A8565-4A10-44C8-82EF-F2F2D1D2BFBF} = {91699256-1B33-43C6-9349-42BED8A229B6}
 		{D53BF26B-B04D-487D-B87B-8569400C1DA1} = {0BB1E67B-ED92-4417-B928-D25CBB9AF4B0}
 	EndGlobalSection
 EndGlobal

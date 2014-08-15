@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>Swagger Codegenerator for .Net</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <style type="text/css">
+        .discovered {
+            max-height: 400px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Swagger Codegenerator for .Net</h1>
+            <p>
+                Generates C# client code for a <a href="https://helloreverb.com/developers/swagger">Swagger</a> enabled API.
+            </p>
+            <p>
+                <a class="btn btn-default" role="button" href="https://github.com/timschlechter/Swagger.Codegen.Net">Code on Github</a>
+                <a class="btn btn-default" role="button" href="#howto">How to use</a>
+                <a class="btn btn-default" role="button" href="#service">As a service</a>
+                <a class="btn btn-primary" role="button" href="downloads/swagger.exe">Download</a>
+            </p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div ng-controller="AppController">
+            <h1>How to use</h1>
+            <h2>Commandline tool</h2>
+            <a name="howto"></a>
+            <p>
+                The commandline tool generatess C# client code for a <a href="https://helloreverb.com/developers/swagger">Swagger</a> enabled API, similar like what wsdl.exe does for webservices. Provides the same functionality offered by the awesome <a href="https://github.com/wordnik/swagger-codegen">swagger-codegen</a> but without its <a href="https://github.com/wordnik/swagger-codegen#prerequisites">prerequisites</a>
+            </p>
+
+            <pre>swagger.exe --url http://petstore.swagger.wordnik.com/api/api-docs</pre>
+
+            <h3>Options</h3>
+            <table class="table table-bordered table-condensed">
+                <thead>
+                    <tr>
+                        <td>Option</td>
+                        <td>Description</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <code>-u</code> or <code>--url</code>
+                        </td>
+                        <td>The url of the API which serves the resource listing
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>-a</code> or <code>--apiname</code>
+                        </td>
+                        <td>The name of the API
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>-n</code> or <code>--namespace</code>
+                        </td>
+                        <td>Specifies the namespace for the generated proxy or template. The default namespace is the global namespace.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>-o</code> or <code>--out</code>
+                        </td>
+                        <td>Specifies the file (or directory) in which to save the generated proxy code. You can also specify a directory in which to create this file. The tool derives the default file name from the API name.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Examples</h3>
+            <pre>swagger.exe --url http://petstore.swagger.wordnik.com/api/api-docs</pre>
+
+            <h2>Webservice</h2>
+            <h3>Try it now</h3>
+            <div class="row">
+                <div class="col-sm-6">
+                    <form class="form-horizontal" ng-submit="process(options)" role="form">
+                        <div class="form-group">
+                            <label for="apiName" class="col-sm-2 control-label">Name</label>
+                            <div class="col-sm-10">
+                                <input id="apiName" required ng-model="options.apiName" type="text" class="form-control" placeholder="Name of the api">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="apiUrl" class="col-sm-2 control-label">Url</label>
+                            <div class="col-sm-10">
+                                <div class="input-group">
+                                    <input id="apiUrl" required ng-model="options.apiUrl" type="text" class="form-control" placeholder="http://example.com/api">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" type="button" ng-click="discover(options.apiUrl, options.apiKey)">Discover</button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="apiKey" class="col-sm-2 control-label">Api key</label>
+                            <div class="col-sm-10">
+                                <input id="apiKey" ng-model="options.apiKey" type="text" class="form-control" placeholder="api_key">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-primary">Generate</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <pre class="col-sm-6 discovered" ng-show="discovered" ng-bind="discovered | json">
+                </pre>
+            </div>
+
+            <h3>Examples</h3>
+            <pre>
+                curl
+            </pre>
+        </div>
+        <footer>
+        </footer>
+    </div>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.22/angular.min.js"></script>
+    <script src="bundles/app.js"></script>
+</body>
+</html>

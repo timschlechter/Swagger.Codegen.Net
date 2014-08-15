@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Swagger.Codegen.CodegenProcessors.CSharp.Templates
+namespace Swagger.Codegen.Processors.CSharp.Templates
 {
     public partial class Output
     {

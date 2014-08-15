@@ -11,14 +11,25 @@ namespace Swagger.Codegen
     {
         static CultureInfo ci = new CultureInfo("en-US", false);
 
-        public static string ToTitleCase(this string val)
+        public static string ToPascalCase(this string val)
         {
-            return ci.TextInfo.ToTitleCase(val); 
+			if (string.IsNullOrEmpty(val))
+			{
+				return val;
+			}
+
+			var sb = new StringBuilder();
+			foreach (var c in val)
+			{
+				sb.Append(c);
+			}
+
+			return sb.ToString();
         }
 
         public static string GetResourceName(this ApiDeclaration apiDeclaration)
         {
-            return apiDeclaration.resourcePath.Replace("/", " ").ToTitleCase().Trim();
+            return apiDeclaration.resourcePath.Replace("/", " ").ToPascalCase().Trim();
         }      
     }
 }

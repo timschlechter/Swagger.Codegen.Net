@@ -1,7 +1,7 @@
 ﻿using System.Reflection;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle("Swagger.Codegen.Console")]
+[assembly: AssemblyTitle("Swagger.Codegen.Web")]
 [assembly: AssemblyDescription("")]
 [assembly: ComVisible(false)]
-[assembly: Guid("ec472c8a-0534-464c-a4ae-9ef1249d9b84")]
+[assembly: Guid("f5a1ef9b-f09f-4091-8696-dd47e042528b")]

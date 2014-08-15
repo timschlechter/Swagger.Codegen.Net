@@ -7,7 +7,7 @@
 //     the code is regenerated.
 // </auto-generated>
 // ------------------------------------------------------------------------------
-namespace Swagger.Codegen.CodegenProcessors.CSharp.Templates
+namespace Swagger.Codegen.Processors.CSharp.Templates
 {
     using System.Linq;
     using System.Text;
@@ -19,9 +19,9 @@ namespace Swagger.Codegen.CodegenProcessors.CSharp.Templates
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Users\Tim Schlechter\Google Drive\Code\Swagger.Codegen.Net\src\Swagger.Codegen\CodegenProcessors\CSharp\Templates\ModelCode.tt"
+    #line 1 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\Templates\ClientCode.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "11.0.0.0")]
-    public partial class ModelCode : ModelCodeBase
+    public partial class ClientCode : ClientCodeBase
     {
 #line hidden
         /// <summary>
@@ -29,6 +29,77 @@ namespace Swagger.Codegen.CodegenProcessors.CSharp.Templates
         /// </summary>
         public virtual string TransformText()
         {
+            this.Write("public class ");
+            
+            #line 7 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\Templates\ClientCode.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Settings.ApiName));
+            
+            #line default
+            #line hidden
+            this.Write("Client\r\n{\r\n    public ");
+            
+            #line 9 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\Templates\ClientCode.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Settings.ApiName));
+            
+            #line default
+            #line hidden
+            this.Write("Client(string url) \r\n    {\r\n        Url = url;\r\n        ");
+            
+            #line 12 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\Templates\ClientCode.tt"
+ foreach (var resourceName in Settings.ApiDeclarations.Select(a => a.GetResourceName())) 
+        { 
+            
+            #line default
+            #line hidden
+            
+            #line 13 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\Templates\ClientCode.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(resourceName));
+            
+            #line default
+            #line hidden
+            this.Write(" = new ");
+            
+            #line 13 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\Templates\ClientCode.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(resourceName));
+            
+            #line default
+            #line hidden
+            this.Write("Client(url);\r\n        ");
+            
+            #line 14 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\Templates\ClientCode.tt"
+ } 
+            
+            #line default
+            #line hidden
+            this.Write("        \r\n    }\r\n\r\n    public string Url { get; private set; }\r\n\r\n    ");
+            
+            #line 20 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\Templates\ClientCode.tt"
+ foreach (var resourceName in Settings.ApiDeclarations.Select(a => a.GetResourceName())) { 
+            
+            #line default
+            #line hidden
+            this.Write("public ");
+            
+            #line 21 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\Templates\ClientCode.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(resourceName));
+            
+            #line default
+            #line hidden
+            this.Write("Client ");
+            
+            #line 21 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\Templates\ClientCode.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(resourceName));
+            
+            #line default
+            #line hidden
+            this.Write(" { get; private set; }\r\n        \r\n    ");
+            
+            #line 23 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\Templates\ClientCode.tt"
+ } 
+            
+            #line default
+            #line hidden
+            this.Write("\r\n}");
             return this.GenerationEnvironment.ToString();
         }
     }
@@ -40,7 +111,7 @@ namespace Swagger.Codegen.CodegenProcessors.CSharp.Templates
     /// Base class for this transformation
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "11.0.0.0")]
-    public class ModelCodeBase
+    public class ClientCodeBase
     {
         #region Fields
         private global::System.Text.StringBuilder generationEnvironmentField;

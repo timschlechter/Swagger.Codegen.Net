@@ -9,17 +9,17 @@ namespace Swagger.Codegen
 {
     public class Codegenerator
     {
-        public void Process(CodegenSettings settings)
+        public void Process(CodegenSettings settings, Stream stream)
         {
-            settings.ResourceListing = Get<ResourceListing>(settings.Url);
+            settings.ResourceListing = Get<ResourceListing>(settings.ApiUrl);
             settings.ApiDeclarations = new List<ApiDeclaration>();
 
             Parallel.ForEach(settings.ResourceListing.apis, api =>
             {
-                settings.ApiDeclarations.Add(Get<ApiDeclaration>(settings.Url + api.path));
+                settings.ApiDeclarations.Add(Get<ApiDeclaration>(settings.ApiUrl + api.path));
             });
 
-            settings.Processor.Process(settings);
+            settings.Processor.Process(settings, stream);
         }
 
         private static T Get<T>(string url)
