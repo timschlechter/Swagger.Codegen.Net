@@ -47,49 +47,47 @@
     <Compile Include="..\..\etc\AssemblyInfo.Common.cs">
       <Link>Properties\AssemblyInfo.Common.cs</Link>
     </Compile>
+    <Compile Include="Model\TypeModel.cs" />
+    <Compile Include="Model\HttpMethod.cs" />
+    <Compile Include="Model\RouteModel.cs" />
+    <Compile Include="Model\ApiModel.cs" />
+    <Compile Include="Model\EndpointModel.cs" />
+    <Compile Include="Processors\CSharp\CSharpExtensions.cs" />
     <Compile Include="Processors\CSharp\CSharpProcessor.cs" />
     <Compile Include="CodegenSettings.cs" />
-    <Compile Include="Extensions.cs" />
+    <Compile Include="CodegenExtensions.cs" />
     <Compile Include="ICodegenProcessor.cs" />
-    <Compile Include="Processors\CSharp\Templates\ClientCode.cs">
-      <DependentUpon>ClientCode.tt</DependentUpon>
+    <Compile Include="Processors\CSharp\ClientTemplate.cs">
+      <DependentUpon>ClientTemplate.tt</DependentUpon>
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
     </Compile>
-    <Compile Include="Processors\CSharp\Templates\ClientCode.Custom.cs">
-      <DependentUpon>ClientCode.tt</DependentUpon>
+    <Compile Include="Processors\CSharp\ClientTemplate.Custom.cs">
+      <DependentUpon>ClientTemplate.tt</DependentUpon>
     </Compile>
-    <Compile Include="Processors\CSharp\Templates\EndpointClientBaseCode.cs">
-      <DependentUpon>EndpointClientBaseCode.tt</DependentUpon>
+    <Compile Include="Processors\CSharp\EndpointTemplate.cs">
+      <DependentUpon>EndpointTemplate.tt</DependentUpon>
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
     </Compile>
-    <Compile Include="Processors\CSharp\Templates\EndpointClientBaseCode.Custom.cs">
-      <DependentUpon>EndpointClientBaseCode.tt</DependentUpon>
+    <Compile Include="Processors\CSharp\EndpointTemplate.Custom.cs">
+      <DependentUpon>EndpointTemplate.tt</DependentUpon>
     </Compile>
-    <Compile Include="Processors\CSharp\Templates\EndpointClientCode.cs">
-      <DependentUpon>EndpointClientCode.tt</DependentUpon>
+    <Compile Include="Processors\CSharp\TypeTemplate.cs">
+      <DependentUpon>TypeTemplate.tt</DependentUpon>
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
     </Compile>
-    <Compile Include="Processors\CSharp\Templates\EndpointClientCode.Custom.cs">
-      <DependentUpon>EndpointClientCode.tt</DependentUpon>
+    <Compile Include="Processors\CSharp\TypeTemplate.Custom.cs">
+      <DependentUpon>TypeTemplate.tt</DependentUpon>
     </Compile>
-    <Compile Include="Processors\CSharp\Templates\ModelCode.cs">
-      <DependentUpon>ModelCode.tt</DependentUpon>
+    <Compile Include="Processors\CSharp\WrapperTemplate.cs">
+      <DependentUpon>WrapperTemplate.tt</DependentUpon>
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
     </Compile>
-    <Compile Include="Processors\CSharp\Templates\ModelCode.Custom.cs">
-      <DependentUpon>ModelCode.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Processors\CSharp\Templates\Output.cs">
-      <DependentUpon>Output.tt</DependentUpon>
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-    </Compile>
-    <Compile Include="Processors\CSharp\Templates\Output.Custom.cs">
-      <DependentUpon>Output.tt</DependentUpon>
+    <Compile Include="Processors\CSharp\WrapperTemplate.Custom.cs">
+      <DependentUpon>WrapperTemplate.tt</DependentUpon>
     </Compile>
     <Compile Include="SwaggerModel\ApiDeclaration\Api.cs" />
     <Compile Include="SwaggerModel\ApiDeclaration\ApiDeclaration.cs" />
@@ -97,7 +95,7 @@
     <Compile Include="Codegenerator.cs" />
     <Compile Include="SwaggerModel\ApiDeclaration\DataType.cs" />
     <Compile Include="SwaggerModel\ApiDeclaration\Items.cs" />
-    <Compile Include="SwaggerModel\ApiDeclaration\Models.cs" />
+    <Compile Include="SwaggerModel\ApiDeclaration\Model.cs" />
     <Compile Include="SwaggerModel\ApiDeclaration\Oauth2.cs" />
     <Compile Include="SwaggerModel\ApiDeclaration\Operation.cs" />
     <Compile Include="SwaggerModel\ApiDeclaration\Parameter.cs" />
@@ -121,25 +119,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="Processors\CSharp\Templates\ClientCode.tt">
+    <None Include="Processors\CSharp\ClientTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>ClientCode.cs</LastGenOutput>
+      <LastGenOutput>ClientTemplate.cs</LastGenOutput>
     </None>
-    <None Include="Processors\CSharp\Templates\EndpointClientBaseCode.tt">
+    <None Include="Processors\CSharp\EndpointTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>EndpointClientBaseCode.cs</LastGenOutput>
+      <LastGenOutput>EndpointTemplate.cs</LastGenOutput>
     </None>
-    <None Include="Processors\CSharp\Templates\EndpointClientCode.tt">
+    <None Include="Processors\CSharp\TypeTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>EndpointClientCode.cs</LastGenOutput>
+      <LastGenOutput>TypeTemplate.cs</LastGenOutput>
     </None>
-    <None Include="Processors\CSharp\Templates\ModelCode.tt">
+    <None Include="Processors\CSharp\WrapperTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>ModelCode.cs</LastGenOutput>
-    </None>
-    <None Include="Processors\CSharp\Templates\Output.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>Output.cs</LastGenOutput>
+      <LastGenOutput>WrapperTemplate.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>

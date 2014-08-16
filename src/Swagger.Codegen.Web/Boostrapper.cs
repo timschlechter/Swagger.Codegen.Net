@@ -3,7 +3,6 @@ using Nancy;
 using Nancy.Bootstrapper;
 using Nancy.Conventions;
 using Nancy.Responses.Negotiation;
-using Swagger.Codegen.CodegenProcessors.CSharp;
 using Swagger.Codegen.Web.Api.Models;
 
 namespace Swagger.Codegen.Web
@@ -20,25 +19,6 @@ namespace Swagger.Codegen.Web
                     c.ResponseProcessors.Add(typeof(JsonProcessor));
                 });
             }
-        }
-
-        protected override void ApplicationStartup(Nancy.TinyIoc.TinyIoCContainer container, IPipelines pipelines)
-        {
-            Mapper.CreateMap<ICodegenProcessor, CodegenProcessorModel>();
-            base.ApplicationStartup(container, pipelines);
-        }
-
-        protected override void ConfigureApplicationContainer(Nancy.TinyIoc.TinyIoCContainer container)
-        {
-            container.RegisterMultiple(
-                typeof(ICodegenProcessor),
-                new[]
-				{
-					typeof(CSharpProcessor)
-				}
-            );
-
-            base.ConfigureApplicationContainer(container);
         }
 
         protected override void ConfigureConventions(NancyConventions nancyConventions)

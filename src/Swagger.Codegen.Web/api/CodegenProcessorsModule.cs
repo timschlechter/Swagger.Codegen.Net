@@ -1,6 +1,6 @@
 ﻿using Nancy;
 using Nancy.ModelBinding;
-using Swagger.Codegen.CodegenProcessors.CSharp;
+using Swagger.Codegen.Processors.CSharp;
 using Swagger.Codegen.Web.Api.Models;
 
 namespace Swagger.Codegen.Web.Api

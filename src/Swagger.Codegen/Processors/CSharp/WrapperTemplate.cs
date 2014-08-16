@@ -7,7 +7,7 @@
 //     the code is regenerated.
 // </auto-generated>
 // ------------------------------------------------------------------------------
-namespace Swagger.Codegen.Processors.CSharp.Templates
+namespace Swagger.Codegen.Processors.CSharp
 {
     using System.Linq;
     using System.Text;
@@ -18,9 +18,9 @@ namespace Swagger.Codegen.Processors.CSharp.Templates
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\Templates\EndpointClientBaseCode.tt"
+    #line 1 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\WrapperTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "11.0.0.0")]
-    public partial class EndpointClientBaseCode : EndpointClientBaseCodeBase
+    public partial class WrapperTemplate : WrapperTemplateBase
     {
 #line hidden
         /// <summary>
@@ -28,9 +28,46 @@ namespace Swagger.Codegen.Processors.CSharp.Templates
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write("public abstract class EndpointClientBase\r\n{\r\n    protected EndpointClientBase(str" +
-                    "ing url)\r\n    {\r\n        Url = url;\r\n    }\r\n        \r\n    public string Url { ge" +
-                    "t; private set; }   \r\n}");
+            
+            #line 6 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\WrapperTemplate.tt"
+ if (Settings.Namespace != null) { 
+            
+            #line default
+            #line hidden
+            this.Write("namespace ");
+            
+            #line 7 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\WrapperTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Settings.Namespace));
+            
+            #line default
+            #line hidden
+            this.Write("\r\n{\r\n");
+            
+            #line 9 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\WrapperTemplate.tt"
+ } 
+            
+            #line default
+            #line hidden
+            
+            #line 10 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\WrapperTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Snippet));
+            
+            #line default
+            #line hidden
+            this.Write("\r\n");
+            
+            #line 11 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\WrapperTemplate.tt"
+ if (Settings.Namespace != null) { 
+            
+            #line default
+            #line hidden
+            this.Write("}\r\n");
+            
+            #line 13 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\WrapperTemplate.tt"
+ } 
+            
+            #line default
+            #line hidden
             return this.GenerationEnvironment.ToString();
         }
     }
@@ -42,7 +79,7 @@ namespace Swagger.Codegen.Processors.CSharp.Templates
     /// Base class for this transformation
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "11.0.0.0")]
-    public class EndpointClientBaseCodeBase
+    public class WrapperTemplateBase
     {
         #region Fields
         private global::System.Text.StringBuilder generationEnvironmentField;

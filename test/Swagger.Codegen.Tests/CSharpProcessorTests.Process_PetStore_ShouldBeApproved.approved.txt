@@ -1,130 +1,254 @@
 ﻿﻿namespace SomeNamespace
 {
-    public class PetstoreClient
+    public partial class PetstoreClient
     {
-        public PetstoreClient(string url) 
+        /// <summary>
+        /// This is a sample server Petstore server.  You can find out more about Swagger 
+        ///     at <a href="http://swagger.wordnik.com">http://swagger.wordnik.com</a> or on irc.freenode.net, #swagger.  For this sample,
+        ///     you can use the api key "special-key" to test the authorization filters
+        /// </summary>
+        /// <param name="baseUrl">The API base URL.</param>
+        public PetstoreClient(string baseUrl = "http://petstore.swagger.wordnik.com/api/api-docs") 
         {
-            Url = url;
-            Pet = new PetClient(url);
-            Store = new StoreClient(url);
-            User = new UserClient(url);
-            
+            BaseUrl = baseUrl;
+            Pet = new PetClient(baseUrl + "/pet);
+            Store = new StoreClient(baseUrl + "/store);
+            User = new UserClient(baseUrl + "/user);
         }
     
-        public string Url { get; private set; }
+        /// <summary>
+        /// The API base URL.
+        /// </summary>
+        public string BaseUrl { get; private set; }
         
+        /// <summary>
+        /// Operations about pets
+        /// </summary>
         public PetClient Pet { get; private set; }        
         
+        /// <summary>
+        /// Operations about store
+        /// </summary>
         public StoreClient Store { get; private set; }        
         
+        /// <summary>
+        /// Operations about user
+        /// </summary>
         public UserClient User { get; private set; }        
     }
 
-    public abstract class EndpointClientBase
+    public partial class PetClient : EndpointClientBase
     {
-        protected EndpointClientBase(string url)
+        /// <summary>
+        /// Operations about pets
+        /// </summary>
+        /// <param name="baseUrl">The endpoint base URL.</param>
+        public PetClient(string baseUrl = "http://petstore.swagger.wordnik.com/api/pet") 
         {
-            Url = url;
+            BaseUrl = baseUrl;
         }
-            
-        public string Url { get; private set; }   
-    }
-
-    public class PetClient : EndpointClientBase
-    {
-        public PetClient(string url) 
-            : base(url) { }
     
-        public array FindPetsByTags()
-    	{
-    	}	
+        /// <summary>
+        /// The endpoint base URL.
+        /// </summary>
+        public string BaseUrl { get; private set; }
     
+        /// <summary>
+        /// Finds Pets by tags
+        /// </summary>
+        /// <remarks>
+        /// Muliple tags can be provided with comma seperated strings. Use tag1, tag2, tag3 for testing.
+        /// </remarks>
+        public void FindPetsByTags()
+        {
+        }    
+    
+        /// <summary>
+        /// Find pet by ID
+        /// </summary>
+        /// <remarks>
+        /// Returns a pet based on ID
+        /// </remarks>
         public Pet GetPetById()
-    	{
-    	}	
+        {
+        }    
     
+        /// <summary>
+        /// Deletes a pet
+        /// </summary>
         public void DeletePet()
-    	{
-    	}	
+        {
+        }    
     
-        public array PartialUpdate()
-    	{
-    	}	
+        /// <summary>
+        /// partial updates to a pet
+        /// </summary>
+        public void PartialUpdate()
+        {
+        }    
     
+        /// <summary>
+        /// Updates a pet in the store with form data
+        /// </summary>
         public void UpdatePetWithForm()
-    	{
-    	}	
+        {
+        }    
     
+        /// <summary>
+        /// Add a new pet to the store
+        /// </summary>
         public void AddPet()
-    	{
-    	}	
+        {
+        }    
     
+        /// <summary>
+        /// Update an existing pet
+        /// </summary>
         public void UpdatePet()
-    	{
-    	}	
+        {
+        }    
     
-        public array FindPetsByStatus()
-    	{
-    	}	
+        /// <summary>
+        /// Finds Pets by status
+        /// </summary>
+        /// <remarks>
+        /// Multiple status values can be provided with comma seperated strings
+        /// </remarks>
+        public void FindPetsByStatus()
+        {
+        }    
     
+        /// <summary>
+        /// uploads an image
+        /// </summary>
         public void UploadFile()
-    	{
-    	}	
+        {
+        }    
     }
 
-    public class StoreClient : EndpointClientBase
+    public partial class StoreClient : EndpointClientBase
     {
-        public StoreClient(string url) 
-            : base(url) { }
+        /// <summary>
+        /// Operations about store
+        /// </summary>
+        /// <param name="baseUrl">The endpoint base URL.</param>
+        public StoreClient(string baseUrl = "http://petstore.swagger.wordnik.com/api/store") 
+        {
+            BaseUrl = baseUrl;
+        }
     
+        /// <summary>
+        /// The endpoint base URL.
+        /// </summary>
+        public string BaseUrl { get; private set; }
+    
+        /// <summary>
+        /// Delete purchase order by ID
+        /// </summary>
+        /// <remarks>
+        /// For valid response try integer IDs with value < 1000.  Anything above 1000 or nonintegers will generate API errors
+        /// </remarks>
         public void DeleteOrder()
-    	{
-    	}	
+        {
+        }    
     
+        /// <summary>
+        /// Find purchase order by ID
+        /// </summary>
+        /// <remarks>
+        /// For valid response try integer IDs with value <= 5. Anything above 5 or nonintegers will generate API errors
+        /// </remarks>
         public Order GetOrderById()
-    	{
-    	}	
+        {
+        }    
     
+        /// <summary>
+        /// Place an order for a pet
+        /// </summary>
         public void PlaceOrder()
-    	{
-    	}	
+        {
+        }    
     }
 
-    public class UserClient : EndpointClientBase
+    public partial class UserClient : EndpointClientBase
     {
-        public UserClient(string url) 
-            : base(url) { }
+        /// <summary>
+        /// Operations about user
+        /// </summary>
+        /// <param name="baseUrl">The endpoint base URL.</param>
+        public UserClient(string baseUrl = "http://petstore.swagger.wordnik.com/api/user") 
+        {
+            BaseUrl = baseUrl;
+        }
     
+        /// <summary>
+        /// The endpoint base URL.
+        /// </summary>
+        public string BaseUrl { get; private set; }
+    
+        /// <summary>
+        /// Create user
+        /// </summary>
+        /// <remarks>
+        /// This can only be done by the logged in user.
+        /// </remarks>
         public void CreateUser()
-    	{
-    	}	
+        {
+        }    
     
+        /// <summary>
+        /// Creates list of users with given input array
+        /// </summary>
         public void CreateUsersWithArrayInput()
-    	{
-    	}	
+        {
+        }    
     
+        /// <summary>
+        /// Creates list of users with given list input
+        /// </summary>
         public void CreateUsersWithListInput()
-    	{
-    	}	
+        {
+        }    
     
+        /// <summary>
+        /// Updated user
+        /// </summary>
+        /// <remarks>
+        /// This can only be done by the logged in user.
+        /// </remarks>
         public void UpdateUser()
-    	{
-    	}	
+        {
+        }    
     
+        /// <summary>
+        /// Delete user
+        /// </summary>
+        /// <remarks>
+        /// This can only be done by the logged in user.
+        /// </remarks>
         public void DeleteUser()
-    	{
-    	}	
+        {
+        }    
     
+        /// <summary>
+        /// Get user by user name
+        /// </summary>
         public User GetUserByName()
-    	{
-    	}	
+        {
+        }    
     
-        public string LoginUser()
-    	{
-    	}	
+        /// <summary>
+        /// Logs user into the system
+        /// </summary>
+        public String LoginUser()
+        {
+        }    
     
+        /// <summary>
+        /// Logs out current logged in user session
+        /// </summary>
         public void LogoutUser()
-    	{
-    	}	
+        {
+        }    
     }
 }

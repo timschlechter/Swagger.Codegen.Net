@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace Swagger.Codegen.SwaggerModel.ApiDeclaration
 {
     public class ApiDeclaration
@@ -8,7 +10,7 @@ namespace Swagger.Codegen.SwaggerModel.ApiDeclaration
 
         public string basePath { get; set; }
 
-        public Models models { get; set; }
+        public IDictionary<string, Model> models { get; set; }
 
         public string[] produces { get; set; }
 

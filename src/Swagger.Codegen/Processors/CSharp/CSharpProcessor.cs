@@ -1,66 +1,63 @@
-﻿using System;
+﻿using Swagger.Codegen.Model;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
-using Swagger.Codegen.Processors.CSharp.Templates;
 using System.Text;
 
-namespace Swagger.Codegen.CodegenProcessors.CSharp
+namespace Swagger.Codegen.Processors.CSharp
 {
-	public class CSharpProcessor : ICodegenProcessor
-	{
-		public string Name
-		{
-			get { return "C#"; }
-		}
+    public class CSharpProcessor : ICodegenProcessor
+    {
+        public string Name
+        {
+            get { return "C#"; }
+        }
 
-        public void Process(CodegenSettings settings, Stream stream)
-		{
-			var snippets = new List<string>();
+        public void Process(ApiModel api, CodegenSettings settings, Stream stream)
+        {
+            var snippets = new List<string>();
 
-			// {ApiName}Client
-			snippets.Add(new ClientCode { Settings = settings }.TransformText());
+            // {ApiName}Client
+            snippets.Add(new ClientTemplate { Api = api, Settings = settings }.TransformText());
 
-			// EndpointClientBase
-			snippets.Add(new EndpointClientBaseCode { Settings = settings }.TransformText());
+            // {ResourceName}Client
+            foreach (var endpoint in api.Endpoints)
+            {
+                snippets.Add(new EndpointTemplate { Endpoint = endpoint, Settings = settings }.TransformText());
+            };
 
-			// {ResourceName}Client
-			foreach(var apiDeclaration in settings.ApiDeclarations)
-			{
-				snippets.Add(new EndpointClientCode { Settings = settings, ApiDeclaration = apiDeclaration }.TransformText());
-			};
+            // Indent snippets when a namespace is set
+            if (!String.IsNullOrEmpty(settings.Namespace))
+            {
+                snippets = snippets.Select(s => "    " + s.Replace(Environment.NewLine, Environment.NewLine + "    ")).ToList();
+            }
 
-			// Indent snippets when a namespace is set
-			if (!String.IsNullOrEmpty(settings.Namespace))
-			{
-				snippets = snippets.Select(s => "    " + s.Replace(Environment.NewLine, Environment.NewLine + "    ")).ToList();
-			}
-
-			var contents = new Output
-			{
-				Settings = settings,
-                Snippet = string.Join(Environment.NewLine + Environment.NewLine, snippets)
-			}.TransformText();
+            var contents = new WrapperTemplate
+            {
+                Api = api,
+                Snippet = string.Join(Environment.NewLine + Environment.NewLine, snippets),
+                Settings = settings 
+            }.TransformText();
 
             using (var sr = new StreamWriter(stream, Encoding.UTF8))
             {
                 sr.Write(contents);
             }
-		}
+        }
 
-		private static void WriteToFile(string path, string contents)
-		{
-			var outputFolder = Path.GetDirectoryName(path);
-			if (!Directory.Exists(outputFolder))
-			{
-				Directory.CreateDirectory(outputFolder);
-			}
+        private static void WriteToFile(string path, string contents)
+        {
+            var outputFolder = Path.GetDirectoryName(path);
+            if (!Directory.Exists(outputFolder))
+            {
+                Directory.CreateDirectory(outputFolder);
+            }
 
-			File.WriteAllText(
-				path: path,
-				contents: contents
-			);
-		}
-	}
+            File.WriteAllText(
+                path: path,
+                contents: contents
+            );
+        }
+    }
 }

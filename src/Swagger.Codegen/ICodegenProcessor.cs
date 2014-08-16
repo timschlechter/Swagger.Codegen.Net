@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Swagger.Codegen.Model;
 using System.IO;
-using System.Linq;
-using System.Text;
 
 namespace Swagger.Codegen
 {
     public interface ICodegenProcessor
     {
-		string Name { get; }
+        string Name { get; }
 
-        void Process(CodegenSettings settings, Stream stream);
+        void Process(ApiModel model, CodegenSettings settings, Stream stream);
     }
 }

@@ -1,4 +1,4 @@
-﻿using Swagger.Codegen.CodegenProcessors.CSharp;
+﻿using Swagger.Codegen.Processors.CSharp;
 using System.IO;
 
 namespace Swagger.Codegen.Console

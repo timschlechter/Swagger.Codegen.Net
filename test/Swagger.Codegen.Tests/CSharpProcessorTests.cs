@@ -2,7 +2,7 @@
 using ApprovalTests.Core;
 using ApprovalTests.Reporters;
 using NUnit.Framework;
-using Swagger.Codegen.CodegenProcessors.CSharp;
+using Swagger.Codegen.Processors.CSharp;
 using System;
 using System.IO;
 using System.Text;
