@@ -7,10 +7,7 @@
 namespace <#= Settings.Namespace #>
 {
 <# } #>
-<# foreach (var snippet in Snippets) { #>
-<#= snippet #>
-        
-<# } #>
+<#= Snippet #>
 <# if (Settings.Namespace != null) { #>
 }
 <# } #>

@@ -26,10 +26,10 @@ namespace Swagger.Codegen.CodegenProcessors.CSharp
 			snippets.Add(new EndpointClientBaseCode { Settings = settings }.TransformText());
 
 			// {ResourceName}Client
-			Parallel.ForEach(settings.ApiDeclarations, apiDeclaration =>
+			foreach(var apiDeclaration in settings.ApiDeclarations)
 			{
 				snippets.Add(new EndpointClientCode { Settings = settings, ApiDeclaration = apiDeclaration }.TransformText());
-			});
+			};
 
 			// Indent snippets when a namespace is set
 			if (!String.IsNullOrEmpty(settings.Namespace))
@@ -40,7 +40,7 @@ namespace Swagger.Codegen.CodegenProcessors.CSharp
 			var contents = new Output
 			{
 				Settings = settings,
-				Snippets = snippets
+                Snippet = string.Join(Environment.NewLine + Environment.NewLine, snippets)
 			}.TransformText();
 
             using (var sr = new StreamWriter(stream, Encoding.UTF8))

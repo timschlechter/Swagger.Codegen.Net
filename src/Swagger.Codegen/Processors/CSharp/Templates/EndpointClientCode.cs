@@ -43,15 +43,14 @@ namespace Swagger.Codegen.Processors.CSharp.Templates
             
             #line default
             #line hidden
-            this.Write("Client(string url) \r\n        : base(url) { }\r\n\r\n\t");
+            this.Write("Client(string url) \r\n        : base(url) { }\r\n");
             
-            #line 12 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\Templates\EndpointClientCode.tt"
- foreach (var operation in ApiDeclaration.apis.SelectMany(api => api.operations))
-	{ 
+            #line 11 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\Templates\EndpointClientCode.tt"
+ foreach (var operation in ApiDeclaration.apis.SelectMany(api => api.operations)) { 
             
             #line default
             #line hidden
-            this.Write("public ");
+            this.Write("\r\n    public ");
             
             #line 13 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\Templates\EndpointClientCode.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(operation.type));
@@ -61,13 +60,13 @@ namespace Swagger.Codegen.Processors.CSharp.Templates
             this.Write(" ");
             
             #line 13 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\Templates\EndpointClientCode.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(operation.nickname));
+            this.Write(this.ToStringHelper.ToStringWithCulture(operation.nickname.ToPascalCase()));
             
             #line default
             #line hidden
-            this.Write("()\r\n\t{\r\n\t}\r\n\t\t\r\n\t");
+            this.Write("()\r\n\t{\r\n\t}\t\r\n");
             
-            #line 17 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\Templates\EndpointClientCode.tt"
+            #line 16 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\Templates\EndpointClientCode.tt"
  } 
             
             #line default

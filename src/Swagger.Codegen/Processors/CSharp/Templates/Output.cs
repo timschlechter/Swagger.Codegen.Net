@@ -50,32 +50,20 @@ namespace Swagger.Codegen.Processors.CSharp.Templates
             #line hidden
             
             #line 10 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\Templates\Output.tt"
- foreach (var snippet in Snippets) { 
+            this.Write(this.ToStringHelper.ToStringWithCulture(Snippet));
             
             #line default
             #line hidden
+            this.Write("\r\n");
             
             #line 11 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\Templates\Output.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(snippet));
-            
-            #line default
-            #line hidden
-            this.Write("\r\n        \r\n");
-            
-            #line 13 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\Templates\Output.tt"
- } 
-            
-            #line default
-            #line hidden
-            
-            #line 14 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\Templates\Output.tt"
  if (Settings.Namespace != null) { 
             
             #line default
             #line hidden
             this.Write("}\r\n");
             
-            #line 16 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\Templates\Output.tt"
+            #line 13 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\Templates\Output.tt"
  } 
             
             #line default

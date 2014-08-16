@@ -25,7 +25,6 @@ namespace Swagger.Codegen.Console
                             ApiName = options.ApiName,
                             ApiUrl = options.Url,
                             Processor = new CSharpProcessor(),
-                            OutputPath = options.OutputPath,
                             Namespace = options.Namespace
                         },
                         fs

@@ -19,9 +19,19 @@ namespace Swagger.Codegen
 			}
 
 			var sb = new StringBuilder();
-			foreach (var c in val)
+            var nextToUpper = true;
+			foreach (var c in val.Trim())
 			{
-				sb.Append(c);
+                if (char.IsLetter(c))
+                {
+                    sb.Append(nextToUpper ? char.ToUpper(c) : c);
+                    nextToUpper = false;
+                }
+                else
+                {
+                    nextToUpper = true;
+                }
+				
 			}
 
 			return sb.ToString();

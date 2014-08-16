@@ -43,14 +43,14 @@ namespace Swagger.Codegen.Processors.CSharp.Templates
             
             #line default
             #line hidden
-            this.Write("Client(string url) \r\n    {\r\n        Url = url;\r\n        ");
+            this.Write("Client(string url) \r\n    {\r\n        Url = url;\r\n");
             
             #line 12 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\Templates\ClientCode.tt"
- foreach (var resourceName in Settings.ApiDeclarations.Select(a => a.GetResourceName())) 
-        { 
+ foreach (var resourceName in Settings.ApiDeclarations.Select(a => a.GetResourceName())) { 
             
             #line default
             #line hidden
+            this.Write("        ");
             
             #line 13 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\Templates\ClientCode.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(resourceName));
@@ -64,42 +64,42 @@ namespace Swagger.Codegen.Processors.CSharp.Templates
             
             #line default
             #line hidden
-            this.Write("Client(url);\r\n        ");
+            this.Write("Client(url);\r\n");
             
             #line 14 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\Templates\ClientCode.tt"
  } 
             
             #line default
             #line hidden
-            this.Write("        \r\n    }\r\n\r\n    public string Url { get; private set; }\r\n\r\n    ");
+            this.Write("        \r\n    }\r\n\r\n    public string Url { get; private set; }\r\n");
             
-            #line 20 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\Templates\ClientCode.tt"
+            #line 18 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\Templates\ClientCode.tt"
  foreach (var resourceName in Settings.ApiDeclarations.Select(a => a.GetResourceName())) { 
             
             #line default
             #line hidden
-            this.Write("public ");
+            this.Write("    \r\n    public ");
             
-            #line 21 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\Templates\ClientCode.tt"
+            #line 20 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\Templates\ClientCode.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(resourceName));
             
             #line default
             #line hidden
             this.Write("Client ");
             
-            #line 21 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\Templates\ClientCode.tt"
+            #line 20 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\Templates\ClientCode.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(resourceName));
             
             #line default
             #line hidden
-            this.Write(" { get; private set; }\r\n        \r\n    ");
+            this.Write(" { get; private set; }        \r\n");
             
-            #line 23 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\Templates\ClientCode.tt"
+            #line 21 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\Templates\ClientCode.tt"
  } 
             
             #line default
             #line hidden
-            this.Write("\r\n}");
+            this.Write("}");
             return this.GenerationEnvironment.ToString();
         }
     }

@@ -3,6 +3,7 @@ using Swagger.Codegen.SwaggerModel.ResourceListing;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Swagger.Codegen
@@ -18,6 +19,8 @@ namespace Swagger.Codegen
             {
                 settings.ApiDeclarations.Add(Get<ApiDeclaration>(settings.ApiUrl + api.path));
             });
+
+            settings.ApiDeclarations = settings.ApiDeclarations.OrderBy(a => a.resourcePath).ToList();
 
             settings.Processor.Process(settings, stream);
         }

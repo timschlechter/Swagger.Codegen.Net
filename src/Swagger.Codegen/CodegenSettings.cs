@@ -15,8 +15,6 @@ namespace Swagger.Codegen
 
         public ICodegenProcessor Processor { get; set; }
 
-        public string OutputPath { get; set; }
-
         public string Namespace { get; set; }
 
         internal IList<ApiDeclaration> ApiDeclarations { get; set; }

@@ -8,11 +8,10 @@ public class <#= ApiDeclaration.GetResourceName() #>Client : EndpointClientBase
 {
     public <#= ApiDeclaration.GetResourceName() #>Client(string url) 
         : base(url) { }
+<# foreach (var operation in ApiDeclaration.apis.SelectMany(api => api.operations)) { #>
 
-	<# foreach (var operation in ApiDeclaration.apis.SelectMany(api => api.operations))
-	{ #>public <#= operation.type #> <#= operation.nickname #>()
+    public <#= operation.type #> <#= operation.nickname.ToPascalCase() #>()
 	{
-	}
-		
-	<# } #>
+	}	
+<# } #>
 }

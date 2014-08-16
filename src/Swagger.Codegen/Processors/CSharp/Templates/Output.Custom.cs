@@ -6,6 +6,6 @@ namespace Swagger.Codegen.Processors.CSharp.Templates
     {
         public CodegenSettings Settings { get; set; }
 
-        public IList<string> Snippets { get; set; }
+        public string Snippet { get; set; }
     }
 }

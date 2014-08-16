@@ -1,0 +1,130 @@
+﻿﻿namespace SomeNamespace
+{
+    public class PetstoreClient
+    {
+        public PetstoreClient(string url) 
+        {
+            Url = url;
+            Pet = new PetClient(url);
+            Store = new StoreClient(url);
+            User = new UserClient(url);
+            
+        }
+    
+        public string Url { get; private set; }
+        
+        public PetClient Pet { get; private set; }        
+        
+        public StoreClient Store { get; private set; }        
+        
+        public UserClient User { get; private set; }        
+    }
+
+    public abstract class EndpointClientBase
+    {
+        protected EndpointClientBase(string url)
+        {
+            Url = url;
+        }
+            
+        public string Url { get; private set; }   
+    }
+
+    public class PetClient : EndpointClientBase
+    {
+        public PetClient(string url) 
+            : base(url) { }
+    
+        public array FindPetsByTags()
+    	{
+    	}	
+    
+        public Pet GetPetById()
+    	{
+    	}	
+    
+        public void DeletePet()
+    	{
+    	}	
+    
+        public array PartialUpdate()
+    	{
+    	}	
+    
+        public void UpdatePetWithForm()
+    	{
+    	}	
+    
+        public void AddPet()
+    	{
+    	}	
+    
+        public void UpdatePet()
+    	{
+    	}	
+    
+        public array FindPetsByStatus()
+    	{
+    	}	
+    
+        public void UploadFile()
+    	{
+    	}	
+    }
+
+    public class StoreClient : EndpointClientBase
+    {
+        public StoreClient(string url) 
+            : base(url) { }
+    
+        public void DeleteOrder()
+    	{
+    	}	
+    
+        public Order GetOrderById()
+    	{
+    	}	
+    
+        public void PlaceOrder()
+    	{
+    	}	
+    }
+
+    public class UserClient : EndpointClientBase
+    {
+        public UserClient(string url) 
+            : base(url) { }
+    
+        public void CreateUser()
+    	{
+    	}	
+    
+        public void CreateUsersWithArrayInput()
+    	{
+    	}	
+    
+        public void CreateUsersWithListInput()
+    	{
+    	}	
+    
+        public void UpdateUser()
+    	{
+    	}	
+    
+        public void DeleteUser()
+    	{
+    	}	
+    
+        public User GetUserByName()
+    	{
+    	}	
+    
+        public string LoginUser()
+    	{
+    	}	
+    
+        public void LogoutUser()
+    	{
+    	}	
+    }
+}

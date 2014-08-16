@@ -173,4 +173,5 @@ UpgradeLog*.htm
 # Microsoft Fakes
 FakesAssemblies/
 
-src/Swagger.Codegen.Web/app/downloads/swagger.exe
+swagger.exe
+*.received.txt
