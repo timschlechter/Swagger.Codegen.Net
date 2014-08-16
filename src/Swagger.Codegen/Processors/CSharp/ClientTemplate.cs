@@ -30,16 +30,36 @@ namespace Swagger.Codegen.Processors.CSharp
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write("public partial class ");
             
             #line 8 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\ClientTemplate.tt"
+ foreach (var endpoint in Api.Endpoints) { 
+            
+            #line default
+            #line hidden
+            this.Write("using ");
+            
+            #line 9 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\ClientTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture((Settings.Namespace == null ? "" : Settings.Namespace + ".") + endpoint.Name.ToPascalCase()));
+            
+            #line default
+            #line hidden
+            this.Write("Endpoint;\r\n");
+            
+            #line 10 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\ClientTemplate.tt"
+ } 
+            
+            #line default
+            #line hidden
+            this.Write("\r\npublic partial class ");
+            
+            #line 12 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\ClientTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Settings.ApiName));
             
             #line default
             #line hidden
             this.Write("Client\r\n{\r\n    /// <summary>\r\n    ");
             
-            #line 11 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\ClientTemplate.tt"
+            #line 15 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\ClientTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Api.Description.ToCSharpComment(indent: 4)));
             
             #line default
@@ -47,49 +67,49 @@ namespace Swagger.Codegen.Processors.CSharp
             this.Write("\r\n    /// </summary>\r\n    /// <param name=\"baseUrl\">The API base URL.</param>\r\n  " +
                     "  public ");
             
-            #line 14 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\ClientTemplate.tt"
+            #line 18 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\ClientTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Api.Name));
             
             #line default
             #line hidden
             this.Write("Client(string baseUrl = \"");
             
-            #line 14 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\ClientTemplate.tt"
+            #line 18 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\ClientTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Api.BaseUrl));
             
             #line default
             #line hidden
             this.Write("\") \r\n    {\r\n        BaseUrl = baseUrl;\r\n");
             
-            #line 17 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\ClientTemplate.tt"
+            #line 21 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\ClientTemplate.tt"
  foreach (var endpoint in Api.Endpoints) { 
             
             #line default
             #line hidden
             this.Write("        ");
             
-            #line 18 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\ClientTemplate.tt"
+            #line 22 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\ClientTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(endpoint.Name.ToPascalCase()));
             
             #line default
             #line hidden
             this.Write(" = new ");
             
-            #line 18 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\ClientTemplate.tt"
+            #line 22 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\ClientTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(endpoint.Name.ToPascalCase()));
             
             #line default
             #line hidden
             this.Write("Client(baseUrl + \"");
             
-            #line 18 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\ClientTemplate.tt"
+            #line 22 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\ClientTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(endpoint.ResourcePath));
             
             #line default
             #line hidden
             this.Write(");\r\n");
             
-            #line 19 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\ClientTemplate.tt"
+            #line 23 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\ClientTemplate.tt"
  } 
             
             #line default
@@ -97,35 +117,35 @@ namespace Swagger.Codegen.Processors.CSharp
             this.Write("    }\r\n\r\n    /// <summary>\r\n    /// The API base URL.\r\n    /// </summary>\r\n    pu" +
                     "blic string BaseUrl { get; private set; }\r\n");
             
-            #line 26 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\ClientTemplate.tt"
+            #line 30 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\ClientTemplate.tt"
  foreach (var endpoint in Api.Endpoints) { 
             
             #line default
             #line hidden
             this.Write("    \r\n    /// <summary>\r\n    ");
             
-            #line 29 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\ClientTemplate.tt"
+            #line 33 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\ClientTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(endpoint.Description.ToCSharpComment(indent: 4)));
             
             #line default
             #line hidden
             this.Write("\r\n    /// </summary>\r\n    public ");
             
-            #line 31 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\ClientTemplate.tt"
+            #line 35 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\ClientTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(endpoint.Name.ToPascalCase()));
             
             #line default
             #line hidden
             this.Write("Client ");
             
-            #line 31 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\ClientTemplate.tt"
+            #line 35 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\ClientTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(endpoint.Name.ToPascalCase()));
             
             #line default
             #line hidden
             this.Write(" { get; private set; }        \r\n");
             
-            #line 32 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\ClientTemplate.tt"
+            #line 36 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\ClientTemplate.tt"
  } 
             
             #line default

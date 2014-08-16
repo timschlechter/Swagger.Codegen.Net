@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Swagger.Codegen.Model
+namespace Swagger.Codegen.Models
 {
     public class ApiModel
     {

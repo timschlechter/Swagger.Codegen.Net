@@ -47,11 +47,11 @@
     <Compile Include="..\..\etc\AssemblyInfo.Common.cs">
       <Link>Properties\AssemblyInfo.Common.cs</Link>
     </Compile>
-    <Compile Include="Model\TypeModel.cs" />
-    <Compile Include="Model\HttpMethod.cs" />
-    <Compile Include="Model\RouteModel.cs" />
-    <Compile Include="Model\ApiModel.cs" />
-    <Compile Include="Model\EndpointModel.cs" />
+    <Compile Include="Models\TypeModel.cs" />
+    <Compile Include="Models\HttpMethod.cs" />
+    <Compile Include="Models\RouteModel.cs" />
+    <Compile Include="Models\ApiModel.cs" />
+    <Compile Include="Models\EndpointModel.cs" />
     <Compile Include="Processors\CSharp\CSharpExtensions.cs" />
     <Compile Include="Processors\CSharp\CSharpProcessor.cs" />
     <Compile Include="CodegenSettings.cs" />
@@ -72,14 +72,6 @@
     </Compile>
     <Compile Include="Processors\CSharp\EndpointTemplate.Custom.cs">
       <DependentUpon>EndpointTemplate.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Processors\CSharp\TypeTemplate.cs">
-      <DependentUpon>TypeTemplate.tt</DependentUpon>
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-    </Compile>
-    <Compile Include="Processors\CSharp\TypeTemplate.Custom.cs">
-      <DependentUpon>TypeTemplate.tt</DependentUpon>
     </Compile>
     <Compile Include="Processors\CSharp\WrapperTemplate.cs">
       <DependentUpon>WrapperTemplate.tt</DependentUpon>
@@ -126,10 +118,6 @@
     <None Include="Processors\CSharp\EndpointTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>EndpointTemplate.cs</LastGenOutput>
-    </None>
-    <None Include="Processors\CSharp\TypeTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>TypeTemplate.cs</LastGenOutput>
     </None>
     <None Include="Processors\CSharp\WrapperTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>

@@ -1,4 +1,4 @@
-﻿using Swagger.Codegen.Model;
+﻿using Swagger.Codegen.Models;
 using System.IO;
 
 namespace Swagger.Codegen

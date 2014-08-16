@@ -1,4 +1,4 @@
-﻿namespace Swagger.Codegen.Model
+﻿namespace Swagger.Codegen.Models
 {
     public class RouteModel
     {

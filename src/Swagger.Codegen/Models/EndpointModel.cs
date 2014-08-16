@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Swagger.Codegen.Model
+namespace Swagger.Codegen.Models
 {
     public class EndpointModel
     {
@@ -18,5 +18,7 @@ namespace Swagger.Codegen.Model
         public string ResourcePath { get; set; }
 
         public IList<RouteModel> Routes { get; set; }
+        
+        public IList<TypeModel> Types { get; set; }
     }
 }

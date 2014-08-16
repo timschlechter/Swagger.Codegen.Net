@@ -1,4 +1,4 @@
-﻿using Swagger.Codegen.Model;
+﻿using Swagger.Codegen.Models;
 using System.Collections.Generic;
 
 namespace Swagger.Codegen.Processors.CSharp

@@ -5,6 +5,10 @@
 <#@ import namespace="System.Collections.Generic" #>
 <#@ import namespace="Swagger.Codegen" #>
 <#@ import namespace="Swagger.Codegen.Processors.CSharp" #>
+<# foreach (var endpoint in Api.Endpoints) { #>
+using <#= (Settings.Namespace == null ? "" : Settings.Namespace + ".") + endpoint.Name.ToPascalCase() #>Endpoint;
+<# } #>
+
 public partial class <#= Settings.ApiName #>Client
 {
     /// <summary>

@@ -4,39 +4,53 @@
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
 <#@ import namespace="Swagger.Codegen" #>
-public partial class <#= Endpoint.Name.ToPascalCase() #>Client : EndpointClientBase
+namespace <#= Endpoint.Name.ToPascalCase() #>Endpoint
 {
-    /// <summary>
-    <#= Endpoint.Description.ToCSharpComment(indent: 4) #>
-    /// </summary>
-    /// <param name="baseUrl">The endpoint base URL.</param>
-    public <#= Endpoint.Name.ToPascalCase() #>Client(string baseUrl = "<#= Endpoint.BaseUrl #>") 
+    public partial class <#= Endpoint.Name.ToPascalCase() #>Client : EndpointClientBase
     {
-        BaseUrl = baseUrl;
-    }
+        /// <summary>
+        <#= Endpoint.Description.ToCSharpComment(indent: 4) #>
+        /// </summary>
+        /// <param name="baseUrl">The endpoint base URL.</param>
+        public <#= Endpoint.Name.ToPascalCase() #>Client(string baseUrl = "<#= Endpoint.BaseUrl #>") 
+        {
+            BaseUrl = baseUrl;
+        }
 
-    /// <summary>
-    /// The endpoint base URL.
-    /// </summary>
-    public string BaseUrl { get; private set; }
+        /// <summary>
+        /// The endpoint base URL.
+        /// </summary>
+        public string BaseUrl { get; private set; }
 <# foreach (var route in Endpoint.Routes) { #>
 
 <# if (!string.IsNullOrEmpty(route.Description)) { #>
-    /// <summary>
-    <#= route.Description.ToCSharpComment(indent: 4) #>
-    /// </summary>
+        /// <summary>
+        <#= route.Description.ToCSharpComment(indent: 4) #>
+        /// </summary>
 <# } #>
 <# if (!string.IsNullOrEmpty(route.Remarks)) { #>
-    /// <remarks>
-    <#= route.Remarks.ToCSharpComment(indent: 4) #>
-    /// </remarks>
+        /// <remarks>
+        <#= route.Remarks.ToCSharpComment(indent: 4) #>
+        /// </remarks>
 <# } #>
-    public <#= route.Type == null 
-                    ? "void" 
-                    : route.Type.IsPrimitive
-                           ? route.Type.Name
-                           : route.Type.Name.ToPascalCase() #> <#= route.Name.ToPascalCase() #>()
+        public <#= route.Type == null 
+                        ? "void" 
+                        : route.Type.IsPrimitive
+                               ? route.Type.Name
+                               : route.Type.Name.ToPascalCase() #> <#= route.Name.ToPascalCase() #>()
+        {
+        }    
+<# } #>
+    }
+<# if (Endpoint.Types != null) { #>
+    
+    namespace Models
     {
-    }    
+<# foreach (var type in Endpoint.Types) { #>
+        public class <#= type.Name.ToPascalCase() #>
+        {
+        }
+<# } #>
+    }
 <# } #>
 }

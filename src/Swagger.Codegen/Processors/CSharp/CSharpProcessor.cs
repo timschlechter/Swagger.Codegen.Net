@@ -1,4 +1,4 @@
-﻿using Swagger.Codegen.Model;
+﻿using Swagger.Codegen.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -18,10 +18,10 @@ namespace Swagger.Codegen.Processors.CSharp
         {
             var snippets = new List<string>();
 
-            // {ApiName}Client
+            // Api Client
             snippets.Add(new ClientTemplate { Api = api, Settings = settings }.TransformText());
 
-            // {ResourceName}Client
+            // Endpoint Clients
             foreach (var endpoint in api.Endpoints)
             {
                 snippets.Add(new EndpointTemplate { Endpoint = endpoint, Settings = settings }.TransformText());

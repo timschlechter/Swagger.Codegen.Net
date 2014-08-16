@@ -1,4 +1,4 @@
-﻿using Swagger.Codegen.Model;
+﻿using Swagger.Codegen.Models;
 using Swagger.Codegen.SwaggerModel.ApiDeclaration;
 
 namespace Swagger.Codegen.Processors.CSharp

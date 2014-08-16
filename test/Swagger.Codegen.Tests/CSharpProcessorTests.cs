@@ -10,7 +10,7 @@ using System.Text;
 namespace Swagger.Codegen.Tests
 {
     [TestFixture]
-    [UseReporter(typeof(NUnitReporter))]
+    [UseReporter(typeof(BeyondCompareReporter))]
     public class CSharpProcessorTests
     {
         [Test]
