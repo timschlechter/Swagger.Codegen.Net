@@ -118,59 +118,103 @@ namespace Swagger.Codegen.Processors.CSharp
             this.Write("        public ");
             
             #line 36 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\EndpointTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(route.Type == null 
-                        ? "void" 
-                        : route.Type.IsPrimitive
-                               ? route.Type.Name
-                               : route.Type.Name.ToPascalCase()));
+            this.Write(this.ToStringHelper.ToStringWithCulture(route.GetResponseTypeName()));
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 40 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\EndpointTemplate.tt"
+            #line 36 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\EndpointTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(route.Name.ToPascalCase()));
             
             #line default
             #line hidden
             this.Write("()\r\n        {\r\n        }    \r\n");
             
-            #line 43 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\EndpointTemplate.tt"
+            #line 39 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\EndpointTemplate.tt"
  } 
             
             #line default
             #line hidden
             this.Write("    }\r\n");
             
-            #line 45 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\EndpointTemplate.tt"
+            #line 41 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\EndpointTemplate.tt"
  if (Endpoint.Types != null) { 
             
             #line default
             #line hidden
             this.Write("    \r\n    namespace Models\r\n    {\r\n");
             
-            #line 49 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\EndpointTemplate.tt"
+            #line 45 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\EndpointTemplate.tt"
  foreach (var type in Endpoint.Types) { 
             
             #line default
             #line hidden
             this.Write("        public class ");
             
-            #line 50 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\EndpointTemplate.tt"
+            #line 46 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\EndpointTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Name.ToPascalCase()));
             
             #line default
             #line hidden
-            this.Write("\r\n        {\r\n        }\r\n");
+            this.Write("\r\n        {\r\n");
+            
+            #line 48 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\EndpointTemplate.tt"
+ foreach (var property in type.Properties) { 
+            
+            #line default
+            #line hidden
+            
+            #line 49 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\EndpointTemplate.tt"
+ if (!string.IsNullOrEmpty(property.Description)) { 
+            
+            #line default
+            #line hidden
+            this.Write("            /// <summary>\r\n            ");
+            
+            #line 51 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\EndpointTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(property.Description.ToCSharpComment(indent: 8)));
+            
+            #line default
+            #line hidden
+            this.Write("\r\n            /// </summary>\r\n");
             
             #line 53 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\EndpointTemplate.tt"
  } 
             
             #line default
             #line hidden
+            this.Write("            public ");
+            
+            #line 54 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\EndpointTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(property.Type.Name));
+            
+            #line default
+            #line hidden
+            this.Write(" ");
+            
+            #line 54 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\EndpointTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(property.Name.ToPascalCase()));
+            
+            #line default
+            #line hidden
+            this.Write(" { get; set ; }\r\n\r\n");
+            
+            #line 56 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\EndpointTemplate.tt"
+ } 
+            
+            #line default
+            #line hidden
+            this.Write("        }\r\n\r\n");
+            
+            #line 59 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\EndpointTemplate.tt"
+ } 
+            
+            #line default
+            #line hidden
             this.Write("    }\r\n");
             
-            #line 55 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\EndpointTemplate.tt"
+            #line 61 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\EndpointTemplate.tt"
  } 
             
             #line default

@@ -12,6 +12,8 @@
 
         public string Remarks { get; set; }
 
-        public TypeModel Type { get; set; }
+        public bool ResponseIsList { get; set; }
+
+        public TypeModel ResponseType { get; set; }
     }
 }

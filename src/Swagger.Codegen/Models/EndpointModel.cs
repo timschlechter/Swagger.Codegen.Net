@@ -18,7 +18,7 @@ namespace Swagger.Codegen.Models
         public string ResourcePath { get; set; }
 
         public IList<RouteModel> Routes { get; set; }
-        
+
         public IList<TypeModel> Types { get; set; }
     }
 }

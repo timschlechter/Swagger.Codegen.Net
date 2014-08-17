@@ -47,6 +47,7 @@
     <Compile Include="..\..\etc\AssemblyInfo.Common.cs">
       <Link>Properties\AssemblyInfo.Common.cs</Link>
     </Compile>
+    <Compile Include="Models\PropertyModel.cs" />
     <Compile Include="Models\TypeModel.cs" />
     <Compile Include="Models\HttpMethod.cs" />
     <Compile Include="Models\RouteModel.cs" />
@@ -88,11 +89,11 @@
     <Compile Include="SwaggerModel\ApiDeclaration\DataType.cs" />
     <Compile Include="SwaggerModel\ApiDeclaration\Items.cs" />
     <Compile Include="SwaggerModel\ApiDeclaration\Model.cs" />
+    <Compile Include="SwaggerModel\ApiDeclaration\ModelProperty.cs" />
     <Compile Include="SwaggerModel\ApiDeclaration\Oauth2.cs" />
     <Compile Include="SwaggerModel\ApiDeclaration\Operation.cs" />
     <Compile Include="SwaggerModel\ApiDeclaration\Parameter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SwaggerModel\ApiDeclaration\Property.cs" />
     <Compile Include="SwaggerModel\ApiDeclaration\Responsemessage.cs" />
     <Compile Include="SimpleJson.cs" />
     <Compile Include="SwaggerModel\ApiDeclaration\Status.cs" />

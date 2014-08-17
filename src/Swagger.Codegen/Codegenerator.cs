@@ -35,7 +35,26 @@ namespace Swagger.Codegen
         {
             var types = apiDeclaration.models.Values.Select(model => new TypeModel
             {
-                Name = model.id
+                Name = model.id,
+            }).ToList();
+
+            types.ForEach((type) =>
+            {
+                type.Properties = apiDeclaration.models[type.Name].properties.Select(kvp =>
+                {
+                    var name = kvp.Key;
+                    var property = kvp.Value;
+                    var typeIsList = property.type == "array";
+                    return new PropertyModel
+                    {
+                        Name = name,
+                        Description = property.description,
+                        TypeIsList = typeIsList,
+                        Type = typeIsList
+                                    ? types.FirstOrDefault(t => t.Name == property.items._ref) ?? GetPrimitiveType(property.items.type, property.items.format)
+                                    : types.FirstOrDefault(t => t.Name == property._ref) ?? GetPrimitiveType(property.type, property.format)
+                    };
+                }).ToList();
             });
 
             return new EndpointModel
@@ -46,9 +65,10 @@ namespace Swagger.Codegen
                 ResourcePath = apiDeclaration.resourcePath,
                 Routes = apiDeclaration.apis.SelectMany(
                     api => api.operations.Select(
-                        o => CreateRouteModel(o, api, types.FirstOrDefault(t => t.Name == o.type))
+                        o => CreateRouteModel(o, api, types)
                     )
-                ).ToList()
+                ).ToList(),
+                Types = types
             };
         }
 
@@ -61,14 +81,18 @@ namespace Swagger.Codegen
             return result;
         }
 
-        private static RouteModel CreateRouteModel(Operation o, Swagger.Codegen.SwaggerModel.ApiDeclaration.Api api, TypeModel type)
+        private static RouteModel CreateRouteModel(Operation o, Swagger.Codegen.SwaggerModel.ApiDeclaration.Api api, IEnumerable<TypeModel> knownTypes)
         {
+            var responseIsList = o.type == "array";
             return new RouteModel
             {
                 Method = CreateHttpMethod(o.method),
                 Name = o.nickname,
                 Path = api.path,
-                Type = type ?? GetPrimitiveType(o.type, o.format),
+                ResponseIsList = responseIsList,
+                ResponseType = responseIsList
+                                    ? knownTypes.FirstOrDefault(t => t.Name == o.items._ref) ?? GetPrimitiveType(o.items.type, o.items.format)
+                                    : knownTypes.FirstOrDefault(t => t.Name == o.type) ?? GetPrimitiveType(o.type, o.format),
                 Description = o.summary,
                 Remarks = o.notes
             };
@@ -83,7 +107,7 @@ namespace Swagger.Codegen
             using (var sr = new StreamReader(response.GetResponseStream()))
             {
                 var content = sr.ReadToEnd();
-
+                content = content.Replace("\"$ref\"", "\"_ref\"");
                 return SimpleJson.DeserializeObject<T>(content);
             };
         }

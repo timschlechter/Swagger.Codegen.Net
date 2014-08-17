@@ -37,7 +37,7 @@ namespace Swagger.Codegen.Processors.CSharp
             {
                 Api = api,
                 Snippet = string.Join(Environment.NewLine + Environment.NewLine, snippets),
-                Settings = settings 
+                Settings = settings
             }.TransformText();
 
             using (var sr = new StreamWriter(stream, Encoding.UTF8))

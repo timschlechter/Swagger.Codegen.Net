@@ -8,8 +8,6 @@ namespace Swagger.Codegen.SwaggerModel.ApiDeclaration
 
         public object defaultValue { get; set; }
 
-        public string description { get; set; }
-
         public string format { get; set; }
 
         public Items items { get; set; }

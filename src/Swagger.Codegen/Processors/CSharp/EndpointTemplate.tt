@@ -33,11 +33,7 @@ namespace <#= Endpoint.Name.ToPascalCase() #>Endpoint
         <#= route.Remarks.ToCSharpComment(indent: 4) #>
         /// </remarks>
 <# } #>
-        public <#= route.Type == null 
-                        ? "void" 
-                        : route.Type.IsPrimitive
-                               ? route.Type.Name
-                               : route.Type.Name.ToPascalCase() #> <#= route.Name.ToPascalCase() #>()
+        public <#= route.GetResponseTypeName() #> <#= route.Name.ToPascalCase() #>()
         {
         }    
 <# } #>
@@ -49,7 +45,17 @@ namespace <#= Endpoint.Name.ToPascalCase() #>Endpoint
 <# foreach (var type in Endpoint.Types) { #>
         public class <#= type.Name.ToPascalCase() #>
         {
+<# foreach (var property in type.Properties) { #>
+<# if (!string.IsNullOrEmpty(property.Description)) { #>
+            /// <summary>
+            <#= property.Description.ToCSharpComment(indent: 8) #>
+            /// </summary>
+<# } #>
+            public <#= property.Type.Name #> <#= property.Name.ToPascalCase() #> { get; set ; }
+
+<# } #>
         }
+
 <# } #>
     }
 <# } #>
