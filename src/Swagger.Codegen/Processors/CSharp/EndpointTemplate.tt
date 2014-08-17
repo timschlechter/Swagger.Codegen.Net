@@ -6,7 +6,10 @@
 <#@ import namespace="Swagger.Codegen" #>
 namespace <#= Endpoint.Name.ToPascalCase() #>Endpoint
 {
-    public partial class <#= Endpoint.Name.ToPascalCase() #>Client : EndpointClientBase
+    using System.Collections.Generic;
+    using <#= Endpoint.Name.ToPascalCase() #>Endpoint.Models;
+
+    public partial class <#= Endpoint.Name.ToPascalCase() #>Client
     {
         /// <summary>
         <#= Endpoint.Description.ToCSharpComment(indent: 4) #>

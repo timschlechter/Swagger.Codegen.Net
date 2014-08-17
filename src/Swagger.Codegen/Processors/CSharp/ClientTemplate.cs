@@ -107,7 +107,7 @@ namespace Swagger.Codegen.Processors.CSharp
             
             #line default
             #line hidden
-            this.Write(");\r\n");
+            this.Write("\");\r\n");
             
             #line 23 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\ClientTemplate.tt"
  } 

@@ -19,7 +19,7 @@ public partial class <#= Settings.ApiName #>Client
     {
         BaseUrl = baseUrl;
 <# foreach (var endpoint in Api.Endpoints) { #>
-        <#= endpoint.Name.ToPascalCase() #> = new <#= endpoint.Name.ToPascalCase() #>Client(baseUrl + "<#= endpoint.ResourcePath #>);
+        <#= endpoint.Name.ToPascalCase() #> = new <#= endpoint.Name.ToPascalCase() #>Client(baseUrl + "<#= endpoint.ResourcePath #>");
 <# } #>
     }
 
