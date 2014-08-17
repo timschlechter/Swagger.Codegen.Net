@@ -1,6 +1,6 @@
-///#source 1 1 /app/js/main.js
+///#source 1 1 /Content/js/main.js
 angular.module('app', []);
-///#source 1 1 /app/js/appController.js
+///#source 1 1 /Content/js/appController.js
 angular.module('app').controller('AppController', [
     '$scope',
     '$http',
@@ -30,7 +30,7 @@ angular.module('app').controller('AppController', [
         };
     }
 ]);
-///#source 1 1 /app/js/api.js
+///#source 1 1 /Content/js/api.js
 angular.module('app').factory('api', [
     '$http',
     function($http) {

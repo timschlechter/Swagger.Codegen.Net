@@ -28,7 +28,7 @@
             <p>
                 <a class="btn btn-default" role="button" href="https://github.com/timschlechter/Swagger.Codegen.Net">Code on Github</a>
                 <a class="btn btn-default" role="button" href="#howto">How to use</a>
-                <a class="btn btn-default" role="button" href="#service">As a service</a>
+                <a class="btn btn-default" role="button" href="#webservice">Webservice</a>
                 <a class="btn btn-primary" role="button" href="downloads/swagger.exe">Download</a>
             </p>
         </div>
@@ -36,14 +36,15 @@
 
     <div class="container">
         <div ng-controller="AppController">
-            <h1>How to use</h1>
-            <h2>Commandline tool</h2>
             <a name="howto"></a>
+            <h1>How to use</h1>            
+            
+            <h2>Commandline tool</h2>            
             <p>
                 The commandline tool generatess C# client code for a <a href="https://helloreverb.com/developers/swagger">Swagger</a> enabled API, similar like what wsdl.exe does for webservices. Provides the same functionality offered by the awesome <a href="https://github.com/wordnik/swagger-codegen">swagger-codegen</a> but without its <a href="https://github.com/wordnik/swagger-codegen#prerequisites">prerequisites</a>
             </p>
 
-            <pre>swagger.exe --url http://petstore.swagger.wordnik.com/api/api-docs</pre>
+            <pre>swagger.exe [options]</pre>
 
             <h3>Options</h3>
             <table class="table table-bordered table-condensed">
@@ -87,8 +88,10 @@
 
             <h3>Examples</h3>
             <pre>swagger.exe --url http://petstore.swagger.wordnik.com/api/api-docs</pre>
-
+            
+            <a name="webservice"></a>
             <h2>Webservice</h2>
+
             <h3>Try it now</h3>
             <div class="row">
                 <div class="col-sm-6">
@@ -128,15 +131,13 @@
             </div>
 
             <h3>Examples</h3>
-            <pre>
-                curl
-            </pre>
+            <pre>curl</pre>
         </div>
         <footer>
         </footer>
     </div>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.22/angular.min.js"></script>
-    <script src="bundles/app.js"></script>
+    <script src="assets/app.js"></script>
     <script>
         (function(i, s, o, g, r, a, m) {
             i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function() {

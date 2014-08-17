@@ -64,35 +64,35 @@
     <Reference Include="System.Configuration" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app\bundles\app.js">
+    <Content Include="Content\app.js">
       <DependentUpon>app.js.bundle</DependentUpon>
     </Content>
-    <Content Include="app\bundles\app.min.js">
+    <Content Include="Content\app.min.js">
       <DependentUpon>app.js.bundle</DependentUpon>
     </Content>
-    <Content Include="app\index.html" />
-    <None Include="app\js\main.js" />
-    <None Include="app\js\api.js" />
-    <None Include="app\js\appController.js" />
+    <Content Include="Views\index.html" />
+    <None Include="Content\js\main.js" />
+    <None Include="Content\js\api.js" />
+    <None Include="Content\js\appController.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\..\etc\AssemblyInfo.Common.cs">
       <Link>Properties\AssemblyInfo.Common.cs</Link>
     </Compile>
-    <Compile Include="Api\Models\CodegenProcessorModel.cs" />
-    <Compile Include="Api\Models\ProcessorJobOptionsModel.cs" />
+    <Compile Include="Models\CodegenProcessorModel.cs" />
+    <Compile Include="Models\ProcessorJobOptionsModel.cs" />
     <Compile Include="Boostrapper.cs" />
-    <Compile Include="Api\CodegenProcessorsModule.cs" />
-    <Compile Include="Api\Models\ProcessorJobModel.cs" />
-    <Compile Include="Api\ApiExtensions.cs" />
+    <Compile Include="CodegenProcessorsModule.cs" />
+    <Compile Include="Models\ProcessorJobModel.cs" />
+    <Compile Include="Extensions.cs" />
     <Compile Include="AppModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-    <None Include="app\bundles\app.js.bundle" />
-    <Content Include="app\bundles\app.min.js.map">
+    <None Include="Content\app.js.bundle" />
+    <Content Include="Content\app.min.js.map">
       <DependentUpon>app.js.bundle</DependentUpon>
     </Content>
   </ItemGroup>
@@ -102,9 +102,7 @@
       <Name>Swagger.Codegen</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="app\js\directives\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

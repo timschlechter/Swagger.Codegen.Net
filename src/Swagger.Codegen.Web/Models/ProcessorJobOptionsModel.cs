@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace Swagger.Codegen.Web.Api.Models
+namespace Swagger.Codegen.Web.Models
 {
     public class ProcessorJobOptionsModel
     {
