@@ -4,9 +4,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Swagger.Codegen.Web
+namespace Swagger.Codegen.Web.Api
 {
-    public static class Extensions
+    public static class ApiExtensions
     {
         #region IEnumerable<T>
 

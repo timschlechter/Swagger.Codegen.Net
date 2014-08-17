@@ -85,7 +85,8 @@
     <Compile Include="Boostrapper.cs" />
     <Compile Include="Api\CodegenProcessorsModule.cs" />
     <Compile Include="Api\Models\ProcessorJobModel.cs" />
-    <Compile Include="Extensions.cs" />
+    <Compile Include="Api\ApiExtensions.cs" />
+    <Compile Include="AppModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,24 +1,18 @@
-﻿using AutoMapper;
-using Nancy;
+﻿using Nancy;
 using Nancy.Bootstrapper;
 using Nancy.Conventions;
-using Nancy.Responses.Negotiation;
-using Swagger.Codegen.Web.Api.Models;
+using Nancy.TinyIoc;
 
 namespace Swagger.Codegen.Web
 {
     public class Boostrapper : DefaultNancyBootstrapper
     {
-        protected override NancyInternalConfiguration InternalConfiguration
+        protected override void ApplicationStartup(TinyIoCContainer container, IPipelines pipelines)
         {
-            get
+            this.Conventions.ViewLocationConventions.Add((viewName, model, context) =>
             {
-                return NancyInternalConfiguration.WithOverrides((c) =>
-                {
-                    c.ResponseProcessors.Clear();
-                    c.ResponseProcessors.Add(typeof(JsonProcessor));
-                });
-            }
+                return string.Concat("app/", viewName);
+            });
         }
 
         protected override void ConfigureConventions(NancyConventions nancyConventions)
