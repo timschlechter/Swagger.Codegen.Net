@@ -15,9 +15,9 @@
         public PetstoreClient(string baseUrl = "http://petstore.swagger.wordnik.com/api/api-docs") 
         {
             BaseUrl = baseUrl;
-            Pet = new PetClient(baseUrl + "/pet);
-            Store = new StoreClient(baseUrl + "/store);
-            User = new UserClient(baseUrl + "/user);
+            Pet = new PetClient(baseUrl + "/pet");
+            Store = new StoreClient(baseUrl + "/store");
+            User = new UserClient(baseUrl + "/user");
         }
     
         /// <summary>
@@ -43,7 +43,10 @@
 
     namespace PetEndpoint
     {
-        public partial class PetClient : EndpointClientBase
+        using System.Collections.Generic;
+        using PetEndpoint.Models;
+    
+        public partial class PetClient
         {
             /// <summary>
             /// Operations about pets
@@ -177,7 +180,10 @@
 
     namespace StoreEndpoint
     {
-        public partial class StoreClient : EndpointClientBase
+        using System.Collections.Generic;
+        using StoreEndpoint.Models;
+    
+        public partial class StoreClient
         {
             /// <summary>
             /// Operations about store
@@ -245,7 +251,10 @@
 
     namespace UserEndpoint
     {
-        public partial class UserClient : EndpointClientBase
+        using System.Collections.Generic;
+        using UserEndpoint.Models;
+    
+        public partial class UserClient
         {
             /// <summary>
             /// Operations about user

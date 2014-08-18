@@ -130,7 +130,7 @@
   </ProjectExtensions>
   <Import Project="..\..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets" Condition="Exists('..\..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets')" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy "$(SolutionDir)\src\Swagger.Codegen.Console\bin\$(ConfigurationName)\swagger.exe" "$(ProjectDir)\app\downloads\" /Y</PostBuildEvent>
+    <PostBuildEvent>xcopy "$(SolutionDir)\src\Swagger.Codegen.Console\bin\$(ConfigurationName)\swagger.exe" "$(ProjectDir)\Downloads\" /Y</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
