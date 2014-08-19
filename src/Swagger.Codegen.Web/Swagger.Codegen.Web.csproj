@@ -54,12 +54,19 @@
     <Reference Include="Nancy.Serialization.JsonNet">
       <HintPath>..\..\packages\Nancy.Serialization.JsonNet.0.23.2\lib\net40\Nancy.Serialization.JsonNet.dll</HintPath>
     </Reference>
+    <Reference Include="Nancy.ViewEngines.Razor">
+      <HintPath>..\..\packages\Nancy.Viewengines.Razor.0.23.2\lib\net40\Nancy.ViewEngines.Razor.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\..\packages\Newtonsoft.Json.6.0.4\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.AspNet.Razor.2.0.30506.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
   </ItemGroup>
@@ -70,7 +77,7 @@
     <Content Include="Content\app.min.js">
       <DependentUpon>app.js.bundle</DependentUpon>
     </Content>
-    <Content Include="Views\index.html" />
+    <None Include="Views\index.cshtml" />
     <None Include="Content\js\main.js" />
     <None Include="Content\js\api.js" />
     <None Include="Content\js\appController.js" />
@@ -80,6 +87,7 @@
     <Compile Include="..\..\etc\AssemblyInfo.Common.cs">
       <Link>Properties\AssemblyInfo.Common.cs</Link>
     </Compile>
+    <Compile Include="Models\AppInfo.cs" />
     <Compile Include="Models\CodegenProcessorModel.cs" />
     <Compile Include="Models\ProcessorJobOptionsModel.cs" />
     <Compile Include="Boostrapper.cs" />
@@ -118,7 +126,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>54869</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:7820/</IISUrl>
+          <IISUrl>http://localhost:9666</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
@@ -130,7 +138,11 @@
   </ProjectExtensions>
   <Import Project="..\..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets" Condition="Exists('..\..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets')" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy "$(SolutionDir)\src\Swagger.Codegen.Console\bin\$(ConfigurationName)\swagger.exe" "$(ProjectDir)\Downloads\" /Y</PostBuildEvent>
+    <PostBuildEvent>xcopy "$(SolutionDir)\src\Swagger.Codegen.Console\bin\$(ConfigurationName)\swagger.exe" "$(ProjectDir)\Downloads\" /Y
+if $(ConfigurationName) == Debug (
+xcopy /s /y /R "$(SolutionDir)packages\Nancy.Viewengines.Razor.0.23.2\BuildProviders\Nancy.ViewEngines.Razor.BuildProviders.dll" "$(ProjectDir)bin\"
+xcopy /s /y /R "$(SolutionDir)packages\Nancy.Viewengines.Razor.0.23.2\lib\Net40\Nancy.ViewEngines.Razor.dll" "$(ProjectDir)bin\"
+)</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
