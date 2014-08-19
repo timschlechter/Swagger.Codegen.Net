@@ -9,5 +9,7 @@
         public TypeModel Type { get; set; }
 
         public bool TypeIsList { get; set; }
+
+        public bool IsRequired { get; set; }
     }
 }

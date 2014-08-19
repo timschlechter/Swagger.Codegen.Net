@@ -9,5 +9,7 @@ namespace Swagger.Codegen.Models
         public string Name { get; set; }
 
         public IList<PropertyModel> Properties { get; set; }
+
+        public bool CanBeNullable { get; set; }
     }
 }

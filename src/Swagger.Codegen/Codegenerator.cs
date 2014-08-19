@@ -14,15 +14,15 @@ namespace Swagger.Codegen
     {
         private static Dictionary<string, TypeModel> _primitives = new Dictionary<string, TypeModel>
         {
-            { "int32", new TypeModel { Name = "integer" } },
-            { "int64", new TypeModel { Name = "long" } },
-            { "float", new TypeModel { Name = "float" } },
-            { "double", new TypeModel { Name = "double" } },
-            { "string", new TypeModel { Name = "string" } },
-            { "byte", new TypeModel { Name = "byte" } },
-            { "boolean", new TypeModel { Name = "bool" } },
-            { "date", new TypeModel { Name = "DateTime" } },
-            { "date-time", new TypeModel { Name = "DateTime" } }
+            { "int32", new TypeModel { Name = "int", IsPrimitive = true, CanBeNullable = true  } },
+            { "int64", new TypeModel { Name = "long", IsPrimitive = true, CanBeNullable = true } },
+            { "float", new TypeModel { Name = "float", IsPrimitive = true, CanBeNullable = true } },
+            { "double", new TypeModel { Name = "double", IsPrimitive = true, CanBeNullable = true } },
+            { "string", new TypeModel { Name = "string", IsPrimitive = true } },
+            { "byte", new TypeModel { Name = "byte", IsPrimitive = true, CanBeNullable = true } },
+            { "boolean", new TypeModel { Name = "bool", IsPrimitive = true, CanBeNullable = true } },
+            { "date", new TypeModel { Name = "DateTime", IsPrimitive = true, CanBeNullable = true } },
+            { "date-time", new TypeModel { Name = "DateTime", IsPrimitive = true, CanBeNullable = true } }
         };
 
         public void Process(CodegenSettings settings, Stream stream)
@@ -40,7 +40,8 @@ namespace Swagger.Codegen
 
             types.ForEach((type) =>
             {
-                type.Properties = apiDeclaration.models[type.Name].properties.Select(kvp =>
+                var model = apiDeclaration.models[type.Name];
+                type.Properties = model.properties.Select(kvp =>
                 {
                     var name = kvp.Key;
                     var property = kvp.Value;
@@ -52,9 +53,10 @@ namespace Swagger.Codegen
                         TypeIsList = typeIsList,
                         Type = typeIsList
                                     ? types.FirstOrDefault(t => t.Name == property.items._ref) ?? GetPrimitiveType(property.items.type, property.items.format)
-                                    : types.FirstOrDefault(t => t.Name == property._ref) ?? GetPrimitiveType(property.type, property.format)
+                                    : types.FirstOrDefault(t => t.Name == property._ref) ?? GetPrimitiveType(property.type, property.format),
+                        IsRequired = model.required != null && model.required.Contains(name)
                     };
-                }).ToList();
+                }).OrderBy(p => p.Name).ToList();
             });
 
             return new EndpointModel

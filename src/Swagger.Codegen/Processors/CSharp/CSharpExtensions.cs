@@ -6,29 +6,6 @@ namespace Swagger.Codegen.Processors.CSharp
 {
     public static class CSharpExtensions
     {
-        public static string GetResponseTypeName(this RouteModel route)
-        {
-            if (route.ResponseType == null)
-            {
-                return "void";
-            }
-
-            var typeName = route.ResponseType.Name.ToPascalCase();
-
-            return route.ResponseIsList
-                        ? string.Format("IList<{0}>", typeName)
-                        : typeName;
-        }
-
-        public static string GetResponseTypeName(this PropertyModel property)
-        {
-            var typeName = property.Type.Name.ToPascalCase();
-
-            return property.TypeIsList
-                        ? string.Format("IList<{0}>", typeName)
-                        : typeName;
-        }
-
         public static string NormalizeLineEndings(this string val)
         {
             if (string.IsNullOrEmpty(val))

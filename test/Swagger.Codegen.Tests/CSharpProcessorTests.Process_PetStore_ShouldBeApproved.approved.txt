@@ -139,7 +139,7 @@
         {
             public class Tag
             {
-                public long Id { get; set ; }
+                public long? Id { get; set ; }
     
                 public string Name { get; set ; }
     
@@ -147,29 +147,29 @@
     
             public class Pet
             {
+                public Category Category { get; set ; }
+    
                 /// <summary>
                 /// unique identifier for the pet
                 /// </summary>
                 public long Id { get; set ; }
     
-                public Category Category { get; set ; }
-    
                 public string Name { get; set ; }
     
-                public string PhotoUrls { get; set ; }
-    
-                public Tag Tags { get; set ; }
+                public IList<string> PhotoUrls { get; set ; }
     
                 /// <summary>
                 /// pet status in the store
                 /// </summary>
                 public string Status { get; set ; }
     
+                public IList<Tag> Tags { get; set ; }
+    
             }
     
             public class Category
             {
-                public long Id { get; set ; }
+                public long? Id { get; set ; }
     
                 public string Name { get; set ; }
     
@@ -231,18 +231,18 @@
         {
             public class Order
             {
-                public long Id { get; set ; }
+                public long? Id { get; set ; }
     
-                public long PetId { get; set ; }
+                public long? PetId { get; set ; }
     
-                public integer Quantity { get; set ; }
+                public int? Quantity { get; set ; }
+    
+                public DateTime? ShipDate { get; set ; }
     
                 /// <summary>
                 /// Order Status
                 /// </summary>
                 public string Status { get; set ; }
-    
-                public DateTime ShipDate { get; set ; }
     
             }
     
@@ -314,7 +314,7 @@
             /// <summary>
             /// Logs user into the system
             /// </summary>
-            public String LoginUser()
+            public string LoginUser()
             {
             }    
     
@@ -340,24 +340,24 @@
         {
             public class User
             {
-                public long Id { get; set ; }
+                public string Email { get; set ; }
     
                 public string FirstName { get; set ; }
     
-                public string Username { get; set ; }
+                public long? Id { get; set ; }
     
                 public string LastName { get; set ; }
-    
-                public string Email { get; set ; }
     
                 public string Password { get; set ; }
     
                 public string Phone { get; set ; }
     
+                public string Username { get; set ; }
+    
                 /// <summary>
                 /// User Status
                 /// </summary>
-                public integer UserStatus { get; set ; }
+                public int? UserStatus { get; set ; }
     
             }
     

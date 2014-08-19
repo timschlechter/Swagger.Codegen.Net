@@ -125,7 +125,7 @@ namespace Swagger.Codegen.Processors.CSharp
             this.Write("        public ");
             
             #line 39 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\EndpointTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(route.GetResponseTypeName()));
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetResponseTypeString(route)));
             
             #line default
             #line hidden
@@ -194,7 +194,7 @@ namespace Swagger.Codegen.Processors.CSharp
             this.Write("            public ");
             
             #line 57 "C:\Users\Tim Schlechter\Dropbox\Code\Swagger.Codegen.Net\src\Swagger.Codegen\Processors\CSharp\EndpointTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(property.Type.Name));
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetTypeString(property)));
             
             #line default
             #line hidden

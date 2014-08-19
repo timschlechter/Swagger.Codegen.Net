@@ -36,7 +36,7 @@ namespace <#= Endpoint.Name.ToPascalCase() #>Endpoint
         <#= route.Remarks.ToCSharpComment(indent: 4) #>
         /// </remarks>
 <# } #>
-        public <#= route.GetResponseTypeName() #> <#= route.Name.ToPascalCase() #>()
+        public <#= GetResponseTypeString(route) #> <#= route.Name.ToPascalCase() #>()
         {
         }    
 <# } #>
@@ -54,7 +54,7 @@ namespace <#= Endpoint.Name.ToPascalCase() #>Endpoint
             <#= property.Description.ToCSharpComment(indent: 8) #>
             /// </summary>
 <# } #>
-            public <#= property.Type.Name #> <#= property.Name.ToPascalCase() #> { get; set ; }
+            public <#= GetTypeString(property) #> <#= property.Name.ToPascalCase() #> { get; set ; }
 
 <# } #>
         }
