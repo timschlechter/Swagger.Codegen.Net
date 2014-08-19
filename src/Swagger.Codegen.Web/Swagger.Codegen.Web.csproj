@@ -81,6 +81,7 @@
     <None Include="Content\js\main.js" />
     <None Include="Content\js\api.js" />
     <None Include="Content\js\appController.js" />
+    <Content Include="favicon.ico" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
