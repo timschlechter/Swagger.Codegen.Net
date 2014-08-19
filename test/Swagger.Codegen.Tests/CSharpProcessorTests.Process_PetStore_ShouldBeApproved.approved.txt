@@ -63,6 +63,30 @@
             public string BaseUrl { get; private set; }
     
             /// <summary>
+            /// Add a new pet to the store
+            /// </summary>
+            public void AddPet()
+            {
+            }    
+    
+            /// <summary>
+            /// Deletes a pet
+            /// </summary>
+            public void DeletePet()
+            {
+            }    
+    
+            /// <summary>
+            /// Finds Pets by status
+            /// </summary>
+            /// <remarks>
+            /// Multiple status values can be provided with comma seperated strings
+            /// </remarks>
+            public IList<Pet> FindPetsByStatus()
+            {
+            }    
+    
+            /// <summary>
             /// Finds Pets by tags
             /// </summary>
             /// <remarks>
@@ -83,30 +107,9 @@
             }    
     
             /// <summary>
-            /// Deletes a pet
-            /// </summary>
-            public void DeletePet()
-            {
-            }    
-    
-            /// <summary>
             /// partial updates to a pet
             /// </summary>
             public IList<Pet> PartialUpdate()
-            {
-            }    
-    
-            /// <summary>
-            /// Updates a pet in the store with form data
-            /// </summary>
-            public void UpdatePetWithForm()
-            {
-            }    
-    
-            /// <summary>
-            /// Add a new pet to the store
-            /// </summary>
-            public void AddPet()
             {
             }    
     
@@ -118,12 +121,9 @@
             }    
     
             /// <summary>
-            /// Finds Pets by status
+            /// Updates a pet in the store with form data
             /// </summary>
-            /// <remarks>
-            /// Multiple status values can be provided with comma seperated strings
-            /// </remarks>
-            public IList<Pet> FindPetsByStatus()
+            public void UpdatePetWithForm()
             {
             }    
     
@@ -295,16 +295,6 @@
             }    
     
             /// <summary>
-            /// Updated user
-            /// </summary>
-            /// <remarks>
-            /// This can only be done by the logged in user.
-            /// </remarks>
-            public void UpdateUser()
-            {
-            }    
-    
-            /// <summary>
             /// Delete user
             /// </summary>
             /// <remarks>
@@ -332,6 +322,16 @@
             /// Logs out current logged in user session
             /// </summary>
             public void LogoutUser()
+            {
+            }    
+    
+            /// <summary>
+            /// Updated user
+            /// </summary>
+            /// <remarks>
+            /// This can only be done by the logged in user.
+            /// </remarks>
+            public void UpdateUser()
             {
             }    
         }

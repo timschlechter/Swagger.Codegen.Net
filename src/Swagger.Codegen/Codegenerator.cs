@@ -67,7 +67,7 @@ namespace Swagger.Codegen
                     api => api.operations.Select(
                         o => CreateRouteModel(o, api, types)
                     )
-                ).ToList(),
+                ).OrderBy(r => r.Name).ToList(),
                 Types = types
             };
         }
