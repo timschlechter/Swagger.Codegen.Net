@@ -1,6 +1,6 @@
 ﻿@model AppInfo
 <!DOCTYPE html>
-<html lang="en" ng-app="app">
+<html lang="en" data-ng-app="app">
 
 <head>
     <meta charset="utf-8">
@@ -36,7 +36,7 @@
     </div>
 
     <div class="container">
-        <div ng-controller="AppController">
+        <div data-ng-controller="AppController">
             <a name="howto"></a>
             <h1>How to use</h1>            
             
@@ -96,18 +96,18 @@
             <h3>Try it now</h3>
             <div class="row">
                 <div class="col-sm-6">
-                    <form class="form-horizontal" ng-submit="process(options)" role="form">
+                    <form class="form-horizontal" data-ng-submit="process(options)" role="form">
                         <div class="form-group">
                             <label for="apiName" class="col-sm-2 control-label">Name</label>
                             <div class="col-sm-10">
-                                <input id="apiName" required ng-model="options.apiName" type="text" class="form-control" placeholder="Name of the api">
+                                <input id="apiName" required data-ng-model="options.apiName" type="text" class="form-control" placeholder="Name of the api">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="apiUrl" class="col-sm-2 control-label">Url</label>
                             <div class="col-sm-10">
                                 <div class="input-group">
-                                    <input id="apiUrl" required ng-model="options.apiUrl" type="text" class="form-control" placeholder="http://example.com/api">
+                                    <input id="apiUrl" required data-ng-model="options.apiUrl" type="text" class="form-control" placeholder="http://example.com/api">
                                     <span class="input-group-btn">
                                         <button class="btn btn-default" type="button" ng-click="discover(options.apiUrl, options.apiKey)">Discover</button>
                                     </span>
@@ -117,7 +117,7 @@
                         <div class="form-group">
                             <label for="apiKey" class="col-sm-2 control-label">Api key</label>
                             <div class="col-sm-10">
-                                <input id="apiKey" ng-model="options.apiKey" type="text" class="form-control" placeholder="api_key">
+                                <input id="apiKey" data-ng-model="options.apiKey" type="text" class="form-control" placeholder="api_key">
                             </div>
                         </div>
                         <div class="form-group">
@@ -127,7 +127,7 @@
                         </div>
                     </form>
                 </div>
-                <pre class="col-sm-6 discovered" ng-show="discovered" ng-bind="discovered | json">
+                <pre class="col-sm-6 discovered" data-ng-show="discovered" ng-bind="discovered | json">
                 </pre>
             </div>
 

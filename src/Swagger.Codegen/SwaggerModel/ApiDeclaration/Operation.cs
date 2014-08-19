@@ -21,7 +21,5 @@ namespace Swagger.Codegen.SwaggerModel.ApiDeclaration
         public Responsemessage[] responseMessages { get; set; }
 
         public string summary { get; set; }
-
-        public string type { get; set; }
     }
 }
