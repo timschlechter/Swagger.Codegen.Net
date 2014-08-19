@@ -77,7 +77,7 @@
     <Content Include="Content\app.min.js">
       <DependentUpon>app.js.bundle</DependentUpon>
     </Content>
-    <None Include="Views\index.cshtml" />
+    <Content Include="Views\index.cshtml" />
     <None Include="Content\js\main.js" />
     <None Include="Content\js\api.js" />
     <None Include="Content\js\appController.js" />
