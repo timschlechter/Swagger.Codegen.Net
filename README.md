@@ -1,3 +1,5 @@
+__Important:__ this repository does not contain a fully working solution, it is work in progress. Unfortunally I have other priorities at the moment and will most likely not proceed with this in the near future. If you would like to continue this work, feel free to contact me or just use the code. License is MIT.
+
 # Swagger.Codegen.Net [![Build status](https://ci.appveyor.com/api/projects/status/qay2eigrfqkmc2qy/branch/master)](https://ci.appveyor.com/project/TimSchlechter/swagger-codegen-net/branch/master)
 
 Commandline tool which generates client code for a [Swagger](https://helloreverb.com/developers/swagger) enabled API
